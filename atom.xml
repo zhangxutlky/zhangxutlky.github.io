@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[My Cyber Space]]></title>
+  <subtitle><![CDATA[水滴石穿]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2015-01-24T07:39:12.930Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[Xu]]></name>
+    <email><![CDATA[zxlntlky@live.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[]]></title>
+    <link href="http://yoursite.com/2015/01/24/%E8%A7%A3%E5%86%B3chrome%20%E5%9C%A8ubuntu%2014.04%20freeze%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2015/01/24/解决chrome 在ubuntu 14.04 freeze的问题/</id>
+    <published>2015-01-24T07:39:05.000Z</published>
+    <updated>2015-01-24T07:10:47.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="解决chrome_在ubuntu_14-04_freeze的问题">解决chrome 在ubuntu 14.04 freeze的问题</h1>
+<p>标签（空格分隔）： linux</p>
+<hr>
+<p>以下转载一篇文章 , 禁用 加速解决freeze的问题</p>
+<blockquote>
+<p>Many of you probably already know about this but for the rest, here’s a quick tip that you might find useful. </p>
+<p><strong>Quick tip</strong>: If you use Chrome or Chromium browsers and hardware acceleration is disabled for your graphics card, you can try to force it to get better video playback performance (for instance on YouTube) as well as support for features such as the 3D Earth view in the new &gt;Google Maps.</p>
+<p>To check if your Chrome / Chromium browser uses hardware acceleration, open a new tab, type: “chrome://gpu” (without the quotes) and look under “Graphics Feature status” - all (or at least most of) the features should say “hardware accelerated”.</p>
+<p>Here’s how it looks like on my laptop (Intel graphics) after enabling hardware acceleration:<br><img src="http://2.bp.blogspot.com/-C9It98guV9Y/Us_8J3IGPhI/AAAAAAAARCQ/jVRAN8QeDnI/s1600/chrome-hwaccel-enabled.jpg" alt=""></p>
+<p>And here’s another screenshot with this page before enabling hardware acceleration:<br><img src="http://2.bp.blogspot.com/-kAzoBBi__qs/Us_8QKLkS4I/AAAAAAAARCY/clR-uKEP-oU/s1600/chrome-no-hwaccel.jpg" alt=""></p>
+<p>To force Chrome / Chromium to use hardware acceleration, open a new tab, type “chrome://flags” (without quotes), search for “Override software rendering list”, enable it and restart Chrome / Chromium:<br><img src="http://3.bp.blogspot.com/-EkSyiBuAY54/Us_8bm5IV7I/AAAAAAAARCg/xcDDhk3X4ps/s1600/chrome-enable-hwaccel.jpg" alt=""></p>
+<p>Try it out:<br>you should now be able to access the 3D Earth Google Maps feature (look for an “Earth” icon in the Google Maps Preview lower right corner);<br>try some 1080p full-screen YouTube HTML5 or Flash videos with and without hardware acceleration in Chrome - in my test using Intel graphics under Ubuntu, a full-screen YouTube video used twice as much CPU without hardware acceleration than when enabling hardware acceleration in Chrome;<br>try a Chrome experiment, with and without hardware acceleration. For me, THIS experiment didn’t work in Chrome (it said “Please wait while I load the model…” but the model didn’t load) until I forced hardware acceleration.</p>
+<p>If you experience issues after this change, simply revert it: open “chrome://flags” (without quotes) in Chrome and disable it.</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="解决chrome_在ubuntu_14-04_freeze的问题">解决chrome 在ubuntu 14.04 freeze的问题</h1>
+<p>标签（空格分隔）： linux</p>
+<hr>
+<p>以下转载一篇文章 , 禁用 加速解决freeze的问题</]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[my_first_post]]></title>
+    <link href="http://yoursite.com/2015/01/23/my_first_post/"/>
+    <id>http://yoursite.com/2015/01/23/my_first_post/</id>
+    <published>2015-01-23T22:43:05.000Z</published>
+    <updated>2015-01-24T07:38:02.000Z</updated>
+    <content type="html"><![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/</a><br>Ubuntu下的:<br><a href="http://blog.maxwi.com/2014/02/22/first-post/" target="_blank" rel="external">http://blog.maxwi.com/2014/02/22/first-post/</a><br>最后,还要特别说明以下,我使用的hexo 2.8.3,出现了一个问题,安装主题之后不能正常显示,搜索很久才找到原因:(刚刚安装这个软件的童鞋可能也会遇到这个问题)<br>解决办法:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-renderer-stylus@<span class="number">0.1</span> --save</div></pre></td></tr></table></figure>
+
+<p>来源:<br><a href="https://github.com/hexojs/hexo/issues/983" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/983</a></p>
+<p>接下来我会陆续迁移以前写的东西到这里.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a hre]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
