@@ -3,9 +3,9 @@
   <title><![CDATA[My Cyber Space]]></title>
   
   <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2015-01-25T03:44:51.447Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="zhangxutlky.github.io/"/>
+  <updated>2015-01-25T07:55:47.208Z</updated>
+  <id>zhangxutlky.github.io/</id>
   
   <author>
     <name><![CDATA[Xu]]></name>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[add personal domains]]></title>
-    <link href="http://yoursite.com/2015/01/24/add-personal-domains/"/>
-    <id>http://yoursite.com/2015/01/24/add-personal-domains/</id>
+    <link href="zhangxutlky.github.io/2015/01/24/add-personal-domains/"/>
+    <id>zhangxutlky.github.io/2015/01/24/add-personal-domains/</id>
     <published>2015-01-25T03:14:23.000Z</published>
-    <updated>2015-01-25T03:31:41.000Z</updated>
+    <updated>2015-01-25T07:05:37.000Z</updated>
     <content type="html"><![CDATA[<p>source:<br><a href="http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html" target="_blank" rel="external">http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html</a></p>
 <ol>
 <li>绑定自己的域名很简单，两步走。但是在绑定之前，你需要已经生成了你的github主页（如：你的用户名.github.io）。</li>
@@ -32,45 +32,41 @@
     <![CDATA[<p>source:<br><a href="http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html" target="_blank" rel="external">http://jingyan.baidu.c]]>
     </summary>
     
-  </entry>
-  
-  <entry>
-    <title><![CDATA[]]></title>
-    <link href="http://yoursite.com/2015/01/24/vim%20%E9%85%8D%E8%89%B2/"/>
-    <id>http://yoursite.com/2015/01/24/vim 配色/</id>
-    <published>2015-01-25T02:25:33.000Z</published>
-    <updated>2015-01-25T02:25:33.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="vim_配色">vim 配色</h1>
-<hr>
-<p>最近发现vim的配色不能被 xterm，tmux很好的支持，许多网上的配置也不work，试了很多配置，发现tmux中的配置不是必须的，只需在bashrc 和vimrc中配置即可</p>
-<p>.bashrc: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> TERM=<span class="string">"xterm-256color"</span></div></pre></td></tr></table></figure>
-
-<p>.vimrc: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> term=screen-<span class="number">256</span>color</div></pre></td></tr></table></figure>
-
-<p>(PS: should before your color scheme)</p>
-<p>可能是tmux比较挑剔需要 screen-256color，所以在vim里写 set t_Co=256 不能保证在tmux里显示正常。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="vim_配色">vim 配色</h1>
-<hr>
-<p>最近发现vim的配色不能被 xterm，tmux很好的支持，许多网上的配置也不work，试了很多配置，发现tmux中的配置不是必须的，只需在bashrc 和vimrc中配置即可</p>
-<p>.bashrc:]]>
-    </summary>
+      <category term="hexo" scheme="zhangxutlky.github.io/tags/hexo/"/>
+    
+      <category term="hexo" scheme="zhangxutlky.github.io/categories/hexo/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[]]></title>
-    <link href="http://yoursite.com/2015/01/24/%E8%A7%A3%E5%86%B3chrome%20%E5%9C%A8ubuntu%2014.04%20freeze%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2015/01/24/解决chrome 在ubuntu 14.04 freeze的问题/</id>
-    <published>2015-01-24T07:39:05.000Z</published>
-    <updated>2015-01-24T07:10:47.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="解决chrome_在ubuntu_14-04_freeze的问题">解决chrome 在ubuntu 14.04 freeze的问题</h1>
-<p>标签（空格分隔）： linux</p>
-<hr>
-<p>以下转载一篇文章 , 禁用 加速解决freeze的问题</p>
+    <title><![CDATA[my_first_post]]></title>
+    <link href="zhangxutlky.github.io/2015/01/23/my_first_post/"/>
+    <id>zhangxutlky.github.io/2015/01/23/my_first_post/</id>
+    <published>2015-01-23T22:43:05.000Z</published>
+    <updated>2015-01-25T04:50:10.000Z</updated>
+    <content type="html"><![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/</a><br>Ubuntu下的:<br><a href="http://blog.maxwi.com/2014/02/22/first-post/" target="_blank" rel="external">http://blog.maxwi.com/2014/02/22/first-post/</a><br>最后,还要特别说明以下,我使用的hexo 2.8.3,出现了一个问题,安装主题之后不能正常显示,搜索很久才找到原因:(刚刚安装这个软件的童鞋可能也会遇到这个问题)<br>解决办法:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-renderer-stylus@<span class="number">0.1</span> --save</div></pre></td></tr></table></figure>
+
+<p>来源:<br><a href="https://github.com/hexojs/hexo/issues/983" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/983</a></p>
+<p>接下来我会陆续迁移以前写的东西到这里.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a hre]]>
+    </summary>
+    
+      <category term="hexo" scheme="zhangxutlky.github.io/tags/hexo/"/>
+    
+      <category term="hexo" scheme="zhangxutlky.github.io/categories/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[解决chrome 在ubuntu 14.04 freeze的问题]]></title>
+    <link href="zhangxutlky.github.io/2014/10/08/%E8%A7%A3%E5%86%B3chrome%20%E5%9C%A8ubuntu%2014.04%20freeze%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>zhangxutlky.github.io/2014/10/08/解决chrome 在ubuntu 14.04 freeze的问题/</id>
+    <published>2014-10-08T13:07:00.000Z</published>
+    <updated>2015-01-25T06:52:50.000Z</updated>
+    <content type="html"><![CDATA[<p>以下转载一篇文章 , 禁用 加速解决freeze的问题<br><a id="more"></a></p>
 <blockquote>
 <p>Many of you probably already know about this but for the rest, here’s a quick tip that you might find useful. </p>
 <p><strong>Quick tip</strong>: If you use Chrome or Chromium browsers and hardware acceleration is disabled for your graphics card, you can try to force it to get better video playback performance (for instance on YouTube) as well as support for features such as the 3D Earth view in the new &gt;Google Maps.</p>
@@ -83,29 +79,260 @@
 </blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="解决chrome_在ubuntu_14-04_freeze的问题">解决chrome 在ubuntu 14.04 freeze的问题</h1>
-<p>标签（空格分隔）： linux</p>
-<hr>
-<p>以下转载一篇文章 , 禁用 加速解决freeze的问题</]]>
+    <![CDATA[<p>以下转载一篇文章 , 禁用 加速解决freeze的问题<br>]]>
+    
     </summary>
+    
+      <category term="linux" scheme="zhangxutlky.github.io/tags/linux/"/>
+    
+      <category term="linux" scheme="zhangxutlky.github.io/categories/linux/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[my_first_post]]></title>
-    <link href="http://yoursite.com/2015/01/23/my_first_post/"/>
-    <id>http://yoursite.com/2015/01/23/my_first_post/</id>
-    <published>2015-01-23T22:43:05.000Z</published>
-    <updated>2015-01-24T07:38:02.000Z</updated>
-    <content type="html"><![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/</a><br>Ubuntu下的:<br><a href="http://blog.maxwi.com/2014/02/22/first-post/" target="_blank" rel="external">http://blog.maxwi.com/2014/02/22/first-post/</a><br>最后,还要特别说明以下,我使用的hexo 2.8.3,出现了一个问题,安装主题之后不能正常显示,搜索很久才找到原因:(刚刚安装这个软件的童鞋可能也会遇到这个问题)<br>解决办法:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-renderer-stylus@<span class="number">0.1</span> --save</div></pre></td></tr></table></figure>
+    <title><![CDATA[vim 配色]]></title>
+    <link href="zhangxutlky.github.io/2014/04/17/vim%20%E9%85%8D%E8%89%B2/"/>
+    <id>zhangxutlky.github.io/2014/04/17/vim 配色/</id>
+    <published>2014-04-17T12:53:00.000Z</published>
+    <updated>2015-01-25T06:51:09.000Z</updated>
+    <content type="html"><![CDATA[<p>最近发现vim的配色不能被 xterm，tmux很好的支持，许多网上的配置也不work，试了很多配置，发现tmux中的配置不是必须的，只需在bashrc 和vimrc中配置即可</p>
+<p><a id="more"></a><br>.bashrc: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> TERM=<span class="string">"xterm-256color"</span></div></pre></td></tr></table></figure>
 
-<p>来源:<br><a href="https://github.com/hexojs/hexo/issues/983" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/983</a></p>
-<p>接下来我会陆续迁移以前写的东西到这里.</p>
+<p>.vimrc: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> term=screen-<span class="number">256</span>color</div></pre></td></tr></table></figure>
+
+<p>(PS: should before your color scheme)</p>
+<p>可能是tmux比较挑剔需要 screen-256color，所以在vim里写 set t_Co=256 不能保证在tmux里显示正常。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a hre]]>
+    <![CDATA[<p>最近发现vim的配色不能被 xterm，tmux很好的支持，许多网上的配置也不work，试了很多配置，发现tmux中的配置不是必须的，只需在bashrc 和vimrc中配置即可</p>
+<p>]]>
+    
     </summary>
+    
+      <category term="vim" scheme="zhangxutlky.github.io/tags/vim/"/>
+    
+      <category term="colorscheme" scheme="zhangxutlky.github.io/tags/colorscheme/"/>
+    
+      <category term="vim" scheme="zhangxutlky.github.io/categories/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[HP V3704 刷BIOS 黑屏，解决办法]]></title>
+    <link href="zhangxutlky.github.io/2013/06/06/HP-V3704-%E5%88%B7BIOS-%E9%BB%91%E5%B1%8F%EF%BC%8C%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>zhangxutlky.github.io/2013/06/06/HP-V3704-刷BIOS-黑屏，解决办法/</id>
+    <published>2013-06-06T10:56:40.000Z</published>
+    <updated>2015-01-25T06:48:08.000Z</updated>
+    <content type="html"><![CDATA[<p>首先，转载一篇相关博文<br><a href="http://diybbs.zol.com.cn/1/34121_2331.html" target="_blank" rel="external">http://diybbs.zol.com.cn/1/34121_2331.html</a><br>目前刷BIOS激活WIN7很火,相信不少V3000本友遇到刷完BIOS黑屏(黑屏是指刷BIOS失败后开机后指示灯都亮就屏幕不亮,不是指因为HP主板问题黑屏)的现象,一定非常着急吧!<br>(ps:如果你对我这个教程持怀疑态度,那就请你不要往下看咯!未必我写这么久!写来骗大家?!!!)</p>
+<p>教大家一个强刷BIOS恢复黑屏的办法:(本人在V3000系列成功,其他机型请慎重!!)</p>
+<p><a id="more"></a></p>
+<blockquote>
+<p>1.首先大家先到HP官网上下载自己的BIOS , 准备一个U盘格式化成FAT32格式.<br>2.使用CRISDISK(在附件里面下载)制作强刷BIOS的U盘,打开CRISDISK4件夹里面的 WINCRIS.EXE,然后选择你的U盘点击Start<br>3.然后出现询问你是否删除U盘里面的数据重建恢复U盘,点击确定<br>4.等待后出现提示你U盘创建成功,点击确定.<br>5.然后提示你可以取下U盘,你取下U盘后再点击确定就可以关闭WINCRIS.EXE咯.<br>6.然后打开你的U盘看是不是多咯3个文件<br>7.就把你从惠普官网下载的BIOS(解压后提取里面WPH结尾的文件),把WPH结尾的文件改名为BIOS.WPH(大写字母),然后把BIOS.WPH复制到你的U盘替换到里面的文件.<br>8.把U盘插到你的黑屏的笔记本上,取下其他USB设备.<br>9.按住Win+B再按开机键,3个键按住不放,等到笔记本’滴’一声叫咯后放手,笔记本会一直滴滴滴的叫,等他叫完后自动关机.就说名强刷成功咯.最后取掉U盘开机,看你是不是成功咯?<br>10.祝你好运,顺便问下有给V3000加银片的朋友吗?你们温度好多?  我南方的  待机CPU 41 GPU 55 硬盘 45   完游戏都稳定在70内吧</p>
+</blockquote>
+<p>需要注意的：</p>
+<ol>
+<li><p>网上有许多其他方法，比如把解压后的fd文件改成 xxx.bin 或者 HPBIOS.ROM,这里对于我的V3704来说，是把xxx.WPH 改成 BIOS.WPH。</p>
+</li>
+<li><p>关于CRISDISK，我试了这篇博文的方法，在windows7下，创建后没有产生三个文件，失败。后来换用xp，顺利产生了三个文件。（如果CRISDISK 不能找到你的U盘，换用一个U盘试试）</p>
+</li>
+<li><p>关于进入盲刷模式，<br> 我的方法是：</p>
+<pre><code> 1.拔掉电池，电源线 
+ 2.按住电源键不放，插入电源线，等一会（10秒左右）自己会开机
+ 3.开了之后会看见LED闪，但是U盘不闪，这时候按电源键强关机
+ 4.按住win+B不放，按电源键，听见滴一声后松开电源键，保持手在win+B上10秒左右
+ 5.这次LED闪且U盘闪，过一会LED不闪了，电脑自动关机
+ 6.拔下U盘，再次按电源键开机，此时屏幕已经点亮
+</code></pre></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>首先，转载一篇相关博文<br><a href="http://diybbs.zol.com.cn/1/34121_2331.html" target="_blank" rel="external">http://diybbs.zol.com.cn/1/34121_2331.html</a><br>目前刷BIOS激活WIN7很火,相信不少V3000本友遇到刷完BIOS黑屏(黑屏是指刷BIOS失败后开机后指示灯都亮就屏幕不亮,不是指因为HP主板问题黑屏)的现象,一定非常着急吧!<br>(ps:如果你对我这个教程持怀疑态度,那就请你不要往下看咯!未必我写这么久!写来骗大家?!!!)</p>
+<p>教大家一个强刷BIOS恢复黑屏的办法:(本人在V3000系列成功,其他机型请慎重!!)</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term="BIOS" scheme="zhangxutlky.github.io/tags/BIOS/"/>
+    
+      <category term="windows" scheme="zhangxutlky.github.io/categories/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Linux 下设置两个主机通过router上网]]></title>
+    <link href="zhangxutlky.github.io/2012/09/30/Linux-%E4%B8%8B%E8%AE%BE%E7%BD%AE%E4%B8%A4%E4%B8%AA%E4%B8%BB%E6%9C%BA%E9%80%9A%E8%BF%87router%E4%B8%8A%E7%BD%91/"/>
+    <id>zhangxutlky.github.io/2012/09/30/Linux-下设置两个主机通过router上网/</id>
+    <published>2012-09-30T17:45:51.000Z</published>
+    <updated>2015-01-25T06:50:42.000Z</updated>
+    <content type="html"><![CDATA[<p>搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。<br><a id="more"></a><br><code>sudo vi /etc/network/interfaces</code><br>配置如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">endpoint <span class="number">1</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">1.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">gw <span class="number">10.1</span>.<span class="number">1.2</span>              //gateway是router eth1的ip </div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain </div><div class="line"> </div><div class="line">endpoint <span class="number">2</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">2.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">gw <span class="number">10.1</span>.<span class="number">2.2</span>             //gateway是router eth2的ip</div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain</div></pre></td></tr></table></figure>
+
+
+
+<p>这样的话，没有router，两台机器是不能ping的，因为在不同的子网<br>router的配置如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#NIC1</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet dhcp   //用于上网</div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain</div><div class="line"> </div><div class="line"><span class="comment">#NIC2</span></div><div class="line">auto eth1</div><div class="line">iface eth1 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">1.2</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line"> </div><div class="line"><span class="comment">#NIC3</span></div><div class="line">auto eth2</div><div class="line">iface eth2 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">2.2</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line"> </div><div class="line"><span class="comment">#NIC4                        //这一个interface用来连接本地的user</span></div><div class="line">auto eth3</div><div class="line">iface eth3 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">3.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">up route add -net x.x.x.x/<span class="number">24</span> gw xx.xx.xx.xx dev eth3  //x.x.x.x 是你想要连接的其他本地用户的endpoint的网络，xx.xx.xx.xx 是这个用户的 router ip，注意 xx.xx.xx.xx 必须与你自己的router ip在一个子网中</div></pre></td></tr></table></figure>
+
+
+<p>这些配置之后，需要在router开启ip_forwarding<br><code>sudo su -</code><br><code>vi /etc/sysctl.conf</code> 把#net.ipv4.ip_forward=1 的注释去掉<br><code>echo 1 &gt; /proc/sys/net/ipv4/ip_forward</code></p>
+<p>然后在router里开启NAT network address translation 网络地址解析<br><code>sudo vim /etc/rc.local</code></p>
+<p>在 “exit 0” 之前加入以下两行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/sbin/iptables -P FORWARD ACCEPT</div><div class="line">/sbin/iptables --table nat -A POSTROUTING -o eth0 -j MASQUERADE</div></pre></td></tr></table></figure>
+
+
+<p>至此，自己两台主机已经可以互相ping通，并且上网。</p>
+<p>//需要注意的是，自己router的第四个interface，需要和本地其他用户的router的一个interface使用一个internal network。要实现这一点需要两个人同时在host的terminal运行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">VBoxManage setextradata &lt;VM_NAME&gt; VBoxInternal/Devices/&lt;ADAPTER_TYPE&gt;/&lt;ADAPTER_SLOT&gt;/LUN<span class="comment">#0/Config/RestrictAccess 0</span></div><div class="line">&lt;VM_NAME&gt;                       //自己router的名字</div><div class="line">&lt;ADAPTER_TYPE&gt;            // e1000</div><div class="line"> &lt;ADAPTER_SLOT&gt;          // 在virtualbox里的第几个slot，直接写数字（<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>）</div></pre></td></tr></table></figure>
+
+<p>全部完成，have fun！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。<br>]]>
+    
+    </summary>
+    
+      <category term="networking" scheme="zhangxutlky.github.io/tags/networking/"/>
+    
+      <category term="linux" scheme="zhangxutlky.github.io/categories/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[用CD 安装openBSD （Alpha, Mac G4, Sparc64)]]></title>
+    <link href="zhangxutlky.github.io/2012/03/16/%E7%94%A8CD-%E5%AE%89%E8%A3%85openBSD-%EF%BC%88Alpha-Mac-G4-Sparc64/"/>
+    <id>zhangxutlky.github.io/2012/03/16/用CD-安装openBSD-（Alpha-Mac-G4-Sparc64/</id>
+    <published>2012-03-16T09:49:26.000Z</published>
+    <updated>2015-01-25T06:52:19.000Z</updated>
+    <content type="html"><![CDATA[<p>今天记录的是之前在这三个平台上安装openBSD的方法，没安装过的朋友，首先阅读中文版的图解安装指南。<br><a href="http://www.bsdlover.cn/html/8/n-8.html" target="_blank" rel="external">http://www.bsdlover.cn/html/8/n-8.html</a><br><a id="more"></a><br>二. 三个平台的特殊性<br>首先需要在ftp://mirror.esc7.net/pub/OpenBSD/5.0/ 选择对应平台的镜像刻录成盘，镜像名字一般为install50.iso ，大小约200M。</p>
+<ol>
+<li><p>对于Alpha，开机按F2,或者ctrl+B，进入shell。然后输入 show device，查询设备名，一般第一项是硬盘，第二项是光盘，大概是DKA0 或者是 DKBO。这时输入 boot xxx（你查询到的名称），从光盘启动。<br>安装完成之后会提示reboot，这之后需要手动切换启动项为硬盘，不然会无限从光盘启动提示安装。<br>（英文安装指南：ftp://mirror.esc7.net/pub/OpenBSD/5.0/alpha/INSTALL.alpha）</p>
+</li>
+<li><p>Mac G4 cube，插入光盘后，需要command + option+ O + F，进入openfirmware。（专用键盘）<br>输入 boot cd:,ofwboot /5.0/macppc/bsd.rd 从光盘启动。<br>安装完成之后，需要再次进入openfirmware， 键入 boot hd:,ofwboot /bsd 从硬盘启动openBSD，以后每次重启都要运行这个指令。<br>（英文安装指南：ftp://mirror.esc7.net/pub/OpenBSD/5.0/macppc/INSTALL.macppc）</p>
+</li>
+<li><p>Sun sparc64， 需要键入stop+A（专用键盘），然后输入 boot cdroom<br>（英文安装指南：ftp://mirror.esc7.net/pub/OpenBSD/5.0/sparc64/INSTALL.sparc64）</p>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>今天记录的是之前在这三个平台上安装openBSD的方法，没安装过的朋友，首先阅读中文版的图解安装指南。<br><a href="http://www.bsdlover.cn/html/8/n-8.html" target="_blank" rel="external">http://www.bsdlover.cn/html/8/n-8.html</a><br>]]>
+    
+    </summary>
+    
+      <category term="installation" scheme="zhangxutlky.github.io/tags/installation/"/>
+    
+      <category term="BSD" scheme="zhangxutlky.github.io/categories/BSD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Install OpenBSD on Octane (sgi)]]></title>
+    <link href="zhangxutlky.github.io/2012/03/07/Install-OpenBSD-on-Octane-sgi/"/>
+    <id>zhangxutlky.github.io/2012/03/07/Install-OpenBSD-on-Octane-sgi/</id>
+    <published>2012-03-07T18:20:52.000Z</published>
+    <updated>2015-01-25T06:54:19.000Z</updated>
+    <content type="html"><![CDATA[<p>这一篇虽然讲的是具体在Octane上装OpenBSD, 比较细节，但是中间涉及到boot from DHCPD server，建立tftpd server 还是很有用的。<br>首先，由于Octane 没有光驱，usb，只能boot from DHCPD or BOOTP server . 建立 DHCPD server的过程如下：</p>
+<p><a href="http://www.linuxtopia.org/online_books/system_administration_books/ubuntu_starter_guide/ch07s04.html" target="_blank" rel="external">http://www.linuxtopia.org/online_books/system_administration_books/ubuntu_starter_guide/ch07s04.html</a></p>
+<ul>
+<li>What is a DHCP Server?<br>A Dynamic Host Configuration Protocol (DHCP) server dynamically assigns IP addresses and other network setting for a given network to other networked PCs that ask. This simplifies network administration and makes connecting new PCs to a network much easier.</li>
+<li>How do I install a DHCP Server?<br>For these examples we are using “eth0” and the following:<br>IP address range: 192.168.0.100 to 192.168.0.200<br>Subnet Mask: 255.255.255.0<br>DNS Servers: 202.188.0.133, 202.188.1.5<br>Domains: tm.net.my<br>Gateway Address: 192.168.0.1<a id="more"></a>
+</li>
+</ul>
+<ol>
+<li><p>Read How do I add Universe and Multiverse?</p>
+</li>
+<li><p>Install the dhcp3-server package with Synaptic(See How do I use Synaptic to install packages?)<br>Networking &gt; dhcp3-server</p>
+</li>
+<li><p> <code>sudo cp /etc/default/dhcp3-server /etc/default/dhcp3-server_backup</code><br> <code>sudo gedit /etc/default/dhcp3-server</code></p>
+</li>
+<li><p>Find this line</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">... INTERFACES=<span class="string">""</span></div></pre></td></tr></table></figure>
+
+<p>Replace with the following line</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INTERFACES=<span class="string">"eth0"</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Save the edited file</p>
+</li>
+<li><p><code>sudo cp /etc/dhcp3/dhcpd.conf /etc/dhcp3/dhcpd.conf_backup</code><br>  <code>sudo gedit /etc/dhcp3/dhcpd.conf</code></p>
+</li>
+</ul>
+<p>Find this section</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    <span class="comment"># option definitions common to all supported networks...</span></div><div class="line">    option domain-name <span class="string">"example.org"</span>;</div><div class="line">    option domain-name-servers ns1.example.org, ns2.example.org;</div><div class="line">   </div><div class="line">    default-lease-time <span class="number">600</span>;</div><div class="line">    max-lease-time <span class="number">7200</span>;</div><div class="line">...</div></pre></td></tr></table></figure>
+
+<p>Replace with the following lines</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># option definitions common to all supported networks...</span></div><div class="line"><span class="comment">#option domain-name "example.org";</span></div><div class="line"><span class="comment">#option domain-name-servers ns1.example.org, ns2.example.org;</span></div><div class="line"><span class="comment">#default-lease-time 600;</span></div><div class="line"><span class="comment">#max-lease-time 7200;</span></div></pre></td></tr></table></figure>
+
+<p>Find this section</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="comment"># A slightly different configuration for an internal subnet.</span></div><div class="line"><span class="comment">#subnet 10.5.5.0 netmask 255.255.255.224 {</span></div><div class="line"><span class="comment">#  range 10.5.5.26 10.5.5.30;</span></div><div class="line"><span class="comment">#  option domain-name-servers ns1.internal.example.org;</span></div><div class="line"><span class="comment">#  option domain-name "internal.example.org";</span></div><div class="line"><span class="comment">#  option routers 10.5.5.1;</span></div><div class="line"><span class="comment">#  option broadcast-address 10.5.5.31;</span></div><div class="line"><span class="comment">#  default-lease-time 600;</span></div><div class="line"><span class="comment">#  max-lease-time 7200;</span></div><div class="line"><span class="comment">#}</span></div><div class="line">...</div></pre></td></tr></table></figure>
+
+<p>Replace with the following lines</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># A slightly different configuration for an internal subnet.</span></div><div class="line">subnet <span class="number">192.168</span>.<span class="number">0.0</span> netmask <span class="number">255.255</span>.<span class="number">255.0</span> {</div><div class="line">range <span class="number">192.168</span>.<span class="number">0.100</span> <span class="number">192.168</span>.<span class="number">0.200</span>;</div><div class="line">option domain-name-servers <span class="number">202.188</span>.<span class="number">0.133</span>, <span class="number">202.188</span>.<span class="number">1.5</span>;</div><div class="line">option domain-name <span class="string">"tm.net.my"</span>;</div><div class="line">option routers <span class="number">192.168</span>.<span class="number">0.1</span>;</div><div class="line">option broadcast-address <span class="number">192.168</span>.<span class="number">0.255</span>;</div><div class="line">default-lease-time <span class="number">600</span>;</div><div class="line">max-lease-time <span class="number">7200</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>Save the edited file (sample/dhcpd.conf_installdhcpserver)<br><code>sudo /etc/init.d/dhcp3-server restart</code></p>
+<p>这里，我没有完全用他一样的设置，domain name server 和domain name是我自己的。另外，但是这些设置还是不够的<br>还需要指定client的IP 和ethernet。查询octane的ethernet 用printenv eaddr。下面是我的设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> host octane {</div><div class="line">  hardware ethernet <span class="number">08</span>:<span class="number">00</span>:<span class="number">69</span>:<span class="number">0</span>b:f8:d3;</div><div class="line">  fixed-address <span class="number">192.168</span>.<span class="number">0.111</span>;</div><div class="line">  filename <span class="string">"/tftpboot/bsd.rd.IP30"</span>;</div><div class="line">  server-name <span class="string">"lassen"</span>;</div><div class="line">}</div><div class="line">subnet <span class="number">192.168</span>.<span class="number">0.0</span> netmask <span class="number">255.255</span>.<span class="number">255.0</span> {</div><div class="line">  range <span class="number">192.168</span>.<span class="number">0.100</span> <span class="number">192.168</span>.<span class="number">0.200</span>;</div><div class="line">  option domain-name-servers <span class="number">64.106</span>.<span class="number">46.33</span>;</div><div class="line">  option domain-name <span class="string">"lassen"</span>;</div><div class="line">  option routers <span class="number">192.168</span>.<span class="number">0.1</span>;</div><div class="line">  option broadcast-address <span class="number">192.168</span>.<span class="number">0.255</span>;</div><div class="line">  default-lease-time <span class="number">600</span>;</div><div class="line">  max-lease-time <span class="number">7200</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>二。建立tftpd server：<a href="http://www.davidsudjiman.info/2006/03/27/installing-and-setting-tftpd-in-ubuntu/" target="_blank" rel="external">http://www.davidsudjiman.info/2006/03/27/installing-and-setting-tftpd-in-ubuntu/</a><br>在同一台电脑，这个目的是为了共享文件，</p>
+<ol>
+<li>Install tftpd and related packages.<br>$ sudo apt-get install xinetd tftpd tftp</li>
+<li>Create /etc/xinetd.d/tftp and put this entry:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">service tftp</div><div class="line">{</div><div class="line">protocol        = udp</div><div class="line">port            = <span class="number">69</span></div><div class="line">socket_<span class="built_in">type</span>     = dgram</div><div class="line">wait            = yes</div><div class="line">user            = nobody</div><div class="line">server          = /usr/sbin/in.tftpd</div><div class="line">server_args     = /tftpboot</div><div class="line">disable         = no</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<ol>
+<li><p>Make /tftpboot directory<br>$ <code>sudo mkdir /tftpboot</code><br>$ <code>sudo chmod -R 777 /tftpboot</code><br>$ <code>sudo chown -R nobody /tftpboot</code></p>
+</li>
+<li><p>Restart tftpd through xinetd<br>$ <code>sudo /etc/init.d/xinetd restart</code></p>
+</li>
+</ol>
+<p>三. 准备安装。把bsd.rd.IP30 文件放到tftpboot目录下，然后 chmod -R 777 bad.rd.IP30，并在dhcpd.conf里指定文件bsd.rd.IP30的路径。</p>
+<p>四. server端已经设定完毕，现在在octane上键入 bootp（）/bsd.rd.IP30 由于之前在server端已经指定了该文件的路径，并且降低了访问权限，现在就可以开始安装了。</p>
+<p>五. 具体的安装过程，这里就不写了，和从cd安装是一样的，但是注意的是，网络环境的设定一定要正确，不然稍后是无法从http或者ftp上install的。</p>
+<p>六. 当开始询问从http还是ftp上安装时，任何一种都OK，只要之前的网络环境设置正确。</p>
+<p>Install <wbr>OpenBSD <wbr>on <wbr>Octane <wbr>(sgi)<br>有两点要补充，第一一定要选择可用的ftp或者http网址，具体的在openBSD官网上能看到，要自己亲自上一下，因为有些已经down掉了，另外，如果没有设好dns的话，server就得写IP了，因为域名是无法识别的。</p>
+<p>七. 到此openBSD就可以顺利安装完了，装完之后由于sgi/octane的特殊性，reboot之后还要进行下设置。在console 里运行 setenv OSLoader boot。另外，如果printenv 输出的OSLoadFilename 是unix，把他改为 /bsd.<br>最后，运行 boot /bsd</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>这一篇虽然讲的是具体在Octane上装OpenBSD, 比较细节，但是中间涉及到boot from DHCPD server，建立tftpd server 还是很有用的。<br>首先，由于Octane 没有光驱，usb，只能boot from DHCPD or BOOTP server . 建立 DHCPD server的过程如下：</p>
+<p><a href="http://www.linuxtopia.org/online_books/system_administration_books/ubuntu_starter_guide/ch07s04.html" target="_blank" rel="external">http://www.linuxtopia.org/online_books/system_administration_books/ubuntu_starter_guide/ch07s04.html</a></p>
+<ul>
+<li>What is a DHCP Server?<br>A Dynamic Host Configuration Protocol (DHCP) server dynamically assigns IP addresses and other network setting for a given network to other networked PCs that ask. This simplifies network administration and makes connecting new PCs to a network much easier.</li>
+<li>How do I install a DHCP Server?<br>For these examples we are using “eth0” and the following:<br>IP address range: 192.168.0.100 to 192.168.0.200<br>Subnet Mask: 255.255.255.0<br>DNS Servers: 202.188.0.133, 202.188.1.5<br>Domains: tm.net.my<br>Gateway Address: 192.168.0.1]]>
+    
+    </summary>
+    
+      <category term="installation" scheme="zhangxutlky.github.io/tags/installation/"/>
+    
+      <category term="BSD" scheme="zhangxutlky.github.io/categories/BSD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[关于多次创建联想恢复介质]]></title>
+    <link href="zhangxutlky.github.io/2012/03/03/%E5%85%B3%E4%BA%8E%E5%A4%9A%E6%AC%A1%E5%88%9B%E5%BB%BA%E8%81%94%E6%83%B3%E6%81%A2%E5%A4%8D%E4%BB%8B%E8%B4%A8/"/>
+    <id>zhangxutlky.github.io/2012/03/03/关于多次创建联想恢复介质/</id>
+    <published>2012-03-03T19:55:18.000Z</published>
+    <updated>2015-01-25T06:51:37.000Z</updated>
+    <content type="html"><![CDATA[<p>最近系统这块接触的比较多，系统的东西又杂，经常是做了就忘。而且自己不懂的时候，经常是中英文google交替搜索关键词，因为中文的网站好处是看的比较快，英文的网站信息比较全，如果把每次做的写成log，这样后人会少走一些弯路，自己将来也方便查阅。</p>
+<p> 首先声明，这篇文章仅是为了学习方便首次创建恢复介质失败，又想学习技巧的用户。<br> <a id="more"></a></p>
+<p>  我的是联想 thinkpad-x220，买完之后直接把原厂的系统格掉了，DIY之后发现蓝键失效。于是用朋友的恢复盘恢复回来，但是创建恢复盘提示不能第二次创建。于是google了一下<br>  原帖地址 <a href="http://thinkbbs.zol.com.cn/39/32108_388558.html" target="_blank" rel="external">http://thinkbbs.zol.com.cn/39/32108_388558.html</a></p>
+<blockquote>
+<p>这里说的恢复介质是指双击Q盘弹出的“创建恢复介质”的恢复介质，即通过此介质可以恢复系统至出厂状态。<br>拿到后第一件事要备份一下原厂的系统，于是打开Q盘，成功创建了一次恢复介质到移动硬盘。<br>但由于这次是抱着试一试的态度，而且想在移动硬盘上重新分个小一点的区来保存恢复介质。于是把移动硬盘给重新分了区，保存的恢复介质的那个区自然被格式化了。<br>然后我就想再次创建恢复介质，这时问题就来了，由于Windows许可证的限制，只允许我创建一次，杯具了。。。<br>其实操作起来相当简单~<br>第一步，设置文件夹选项，Win7是在菜单栏那块儿“组织”选项里的“文件夹和搜索选项”，将“隐藏受保护的操作系统文件”前的勾去掉，并选择“显示隐藏的文件、文件夹和驱动器”这一项<br>第二步，打开我的电脑，找到Q盘，右键点击，选择“打开自动播放”<br>第三步，此时会跳出自动播放的Q盘，选择“打开文件夹以查看文件”，这时候你就会看到Q盘里的内容，这时候你打开FactoryRecovery文件夹，在这个文件夹里你会看到一个service_done.ini的文件，打开一看，有这么一句话：[SERVICE]  DONE=1，哈哈，终于找到了罪魁祸首！你再仔细一看，会发现这个文件创建的日期和其他的不同！这是当然了，因为这个文件是在你第一次成功创建恢复介质之后自动创建的，也正是因为有了这个文件，才会在你第二次尝试制作恢复介质的时候限制你。<br>最后一步，将service_done.ini删除，大功告成。<br>这时候，你再去双击Q盘，就可以顺利的创建恢复介质了，于是我就赶紧在移动硬盘里创建了一份，结果当然是成功了~</p>
+</blockquote>
+<p>  问题是按照这种方法去做之后，并不能100%保证创建成功，在创建过程中，会询问创建启动介质还是数据介质，如果勾选数据介质，就会提示错误，然后退出创建。<br>  <img src="/img/4.png" alt=""><br>  于是又google了一下，发现需要在Factory Recovery 目录下创建cdrivebackup.wim 和Qdrivebackup.wim两个文件，这样之后，就不会出现错误了。<br>  <img src="/img/5.png" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近系统这块接触的比较多，系统的东西又杂，经常是做了就忘。而且自己不懂的时候，经常是中英文google交替搜索关键词，因为中文的网站好处是看的比较快，英文的网站信息比较全，如果把每次做的写成log，这样后人会少走一些弯路，自己将来也方便查阅。</p>
+<p> 首先声明，这篇文章仅是为了学习方便首次创建恢复介质失败，又想学习技巧的用户。<br> ]]>
+    
+    </summary>
+    
+      <category term="系统恢复" scheme="zhangxutlky.github.io/tags/%E7%B3%BB%E7%BB%9F%E6%81%A2%E5%A4%8D/"/>
+    
+      <category term="windows" scheme="zhangxutlky.github.io/categories/windows/"/>
     
   </entry>
   
