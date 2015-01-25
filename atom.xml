@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[My Cyber Space]]></title>
-  <subtitle><![CDATA[水滴石穿]]></subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-01-24T07:39:12.930Z</updated>
+  <updated>2015-01-25T03:31:49.851Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,53 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[add personal domains]]></title>
+    <link href="http://yoursite.com/2015/01/24/add-personal-domains/"/>
+    <id>http://yoursite.com/2015/01/24/add-personal-domains/</id>
+    <published>2015-01-25T03:14:23.000Z</published>
+    <updated>2015-01-25T03:31:41.000Z</updated>
+    <content type="html"><![CDATA[<p>source:<br><a href="http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html" target="_blank" rel="external">http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html</a></p>
+<ol>
+<li>绑定自己的域名很简单，两步走。但是在绑定之前，你需要已经生成了你的github主页（如：你的用户名.github.io）。</li>
+<li>创建一个CNAME文件（文件名叫CNAME，没有文件后缀），并上传至你的主页项目中。<br><img src="/img/2.png" alt=""></li>
+<li>前往你的DNS服务商新建一个CNAME解析至你的github page个人主页地址（如：xiangming.github.io）。DNSPod需要多加一个点，即xiangming.github.io.<br><img src="/img/3.png" alt=""></li>
+<li>等待更改生效，一般几分钟就可以使用你自定义的域名进行访问了。</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>source:<br><a href="http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html" target="_blank" rel="external">http://jingyan.baidu.c]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[]]></title>
+    <link href="http://yoursite.com/2015/01/24/vim%20%E9%85%8D%E8%89%B2/"/>
+    <id>http://yoursite.com/2015/01/24/vim 配色/</id>
+    <published>2015-01-25T02:25:33.000Z</published>
+    <updated>2015-01-25T02:25:33.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="vim_配色">vim 配色</h1>
+<hr>
+<p>最近发现vim的配色不能被 xterm，tmux很好的支持，许多网上的配置也不work，试了很多配置，发现tmux中的配置不是必须的，只需在bashrc 和vimrc中配置即可</p>
+<p>.bashrc: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> TERM=<span class="string">"xterm-256color"</span></div></pre></td></tr></table></figure>
+
+<p>.vimrc: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> term=screen-<span class="number">256</span>color</div></pre></td></tr></table></figure>
+
+<p>(PS: should before your color scheme)</p>
+<p>可能是tmux比较挑剔需要 screen-256color，所以在vim里写 set t_Co=256 不能保证在tmux里显示正常。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="vim_配色">vim 配色</h1>
+<hr>
+<p>最近发现vim的配色不能被 xterm，tmux很好的支持，许多网上的配置也不work，试了很多配置，发现tmux中的配置不是必须的，只需在bashrc 和vimrc中配置即可</p>
+<p>.bashrc:]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[]]></title>

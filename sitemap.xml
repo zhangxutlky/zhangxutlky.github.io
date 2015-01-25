@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2015/01/24/add-personal-domains/</loc>
+    <lastmod>2015-01-25T03:31:41.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/01/24/vim%20%E9%85%8D%E8%89%B2/</loc>
+    <lastmod>2015-01-25T02:25:33.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/01/23/my_first_post/</loc>
     <lastmod>2015-01-24T07:38:02.000Z</lastmod>
   </url>
