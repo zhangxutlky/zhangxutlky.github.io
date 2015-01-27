@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ibartman.com/"/>
-  <updated>2015-01-27T18:35:04.766Z</updated>
+  <updated>2015-01-27T19:29:47.119Z</updated>
   <id>http://www.ibartman.com/</id>
   
   <author>
@@ -13,6 +13,47 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[如何用git实现多台电脑管理hexo 源文件]]></title>
+    <link href="http://www.ibartman.com/2015/01/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86hexo-%E6%BA%90%E6%96%87%E4%BB%B6/"/>
+    <id>http://www.ibartman.com/2015/01/27/如何实现多台电脑管理hexo-源文件/</id>
+    <published>2015-01-27T18:43:44.000Z</published>
+    <updated>2015-01-27T19:29:29.000Z</updated>
+    <content type="html"><![CDATA[<p>折腾hexo已经快一周了, 看了各种教程, 基本实现多台电脑同时编辑博客.<br>基本方法是使用两个git repo,一个管理site,一个管理src.<br>site就是 xxx.github.io ,存储的是网站的html,用repo1 管理.<br>src 管理的是编辑 blog 时的源文件,用repo2 管理. (src 的gitignore 文件,加入 .deploy 和 public)<br>这样通过同步repo2,就能实现不同电脑编辑博客文件了.</p>
+<p>但是昨天发现了一个问题, 虽然repo2 同步没问题,但是repo1的master branch<br>总是被重置. 具体的是,假设我有两台电脑 computer1, computer2. 他们各自管理自己repo1的版本<br>computer1 : ver1, ver2, ver3 …<br>computer2 : ver1`, ver2`, ver3` …<br>这样如果换电脑编辑,博客是能顺利更新,就是repo1 会被重新刷新成另一台电脑的版本.<br>而我想要的是保留所有的版本.<br>原因是.deploy 这个文件夹在不同的电脑没有同步.(本身是一个submodule)</p>
+<p>我的解决办法:<br>(推荐事先配置好repo1,repo2 的ssh key)<br>repo1: xxx.github.io (site)<br>repo2: (blog src)</p>
+<ul>
+<li>假设已经在第一台电脑设置好两个repo, 当首次在另一台新的电脑上编辑博客时:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone repo1</div><div class="line">git clone repo2</div><div class="line">mv repo1/ .repo2/.deploy/</div></pre></td></tr></table></figure>
+
+<ul>
+<li>创建 fetch.sh 和 submit.sh,放在src的根目录</li>
+<li>每次编辑之前运行 fetch.sh, 保证.deploy 和 src 获取最新版本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line">git pull origin master</div><div class="line"><span class="built_in">cd</span> .deploy/</div><div class="line">git pull origin master</div></pre></td></tr></table></figure>
+
+<ul>
+<li>每次编辑之后运行 submit.sh, deploy 然后push新的 src</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line">hexo d -g</div><div class="line">git add .</div><div class="line">git commit -am <span class="string">"update blog source"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+
+<p>这样就解决了 site repo总是被重置的问题<br>PS: src 根目录的gitignore文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public/</div><div class="line">.deploy/</div><div class="line">.DS_Store</div><div class="line">db.json</div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>折腾hexo已经快一周了, 看了各种教程, 基本实现多台电脑同时编辑博客.<br>基本方法是使用两个git repo,一个管理site,一个管理src.<br>site就是 xxx.github.io ,存储的是网站的html,用repo1 管理.<br>src 管理的是编]]>
+    </summary>
+    
+      <category term="hexo" scheme="http://www.ibartman.com/tags/hexo/"/>
+    
+      <category term="git" scheme="http://www.ibartman.com/tags/git/"/>
+    
+      <category term="hexo" scheme="http://www.ibartman.com/categories/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[add personal domains]]></title>
