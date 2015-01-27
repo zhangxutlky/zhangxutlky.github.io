@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ibartman.com/"/>
-  <updated>2015-01-27T08:35:30.063Z</updated>
+  <updated>2015-01-27T18:09:58.553Z</updated>
   <id>http://www.ibartman.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://www.ibartman.com/2015/01/24/add-personal-domains/"/>
     <id>http://www.ibartman.com/2015/01/24/add-personal-domains/</id>
     <published>2015-01-25T03:14:23.000Z</published>
-    <updated>2015-01-27T08:34:39.000Z</updated>
+    <updated>2015-01-27T17:45:34.000Z</updated>
     <content type="html"><![CDATA[<p>source:<br><a href="http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html" target="_blank" rel="external">http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html</a></p>
 <ol>
 <li>绑定自己的域名很简单，两步走。但是在绑定之前，你需要已经生成了你的github主页（如：你的用户名.github.io）。</li>
@@ -45,7 +45,7 @@
     <link href="http://www.ibartman.com/2015/01/23/my_first_post/"/>
     <id>http://www.ibartman.com/2015/01/23/my_first_post/</id>
     <published>2015-01-23T22:43:05.000Z</published>
-    <updated>2015-01-25T04:50:10.000Z</updated>
+    <updated>2015-01-27T17:45:34.000Z</updated>
     <content type="html"><![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/</a><br>Ubuntu下的:<br><a href="http://blog.maxwi.com/2014/02/22/first-post/" target="_blank" rel="external">http://blog.maxwi.com/2014/02/22/first-post/</a><br>最后,还要特别说明以下,我使用的hexo 2.8.3,出现了一个问题,安装主题之后不能正常显示,搜索很久才找到原因:(刚刚安装这个软件的童鞋可能也会遇到这个问题)<br>解决办法:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-renderer-stylus@<span class="number">0.1</span> --save</div></pre></td></tr></table></figure>
 
@@ -67,7 +67,7 @@
     <link href="http://www.ibartman.com/2014/10/08/%E8%A7%A3%E5%86%B3chrome%20%E5%9C%A8ubuntu%2014.04%20freeze%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://www.ibartman.com/2014/10/08/解决chrome 在ubuntu 14.04 freeze的问题/</id>
     <published>2014-10-08T13:07:00.000Z</published>
-    <updated>2015-01-25T06:52:50.000Z</updated>
+    <updated>2015-01-27T17:45:34.000Z</updated>
     <content type="html"><![CDATA[<p>以下转载一篇文章 , 禁用 加速解决freeze的问题<br><a id="more"></a></p>
 <blockquote>
 <p>Many of you probably already know about this but for the rest, here’s a quick tip that you might find useful. </p>
@@ -96,7 +96,7 @@
     <link href="http://www.ibartman.com/2014/04/17/vim%20%E9%85%8D%E8%89%B2/"/>
     <id>http://www.ibartman.com/2014/04/17/vim 配色/</id>
     <published>2014-04-17T12:53:00.000Z</published>
-    <updated>2015-01-25T06:51:09.000Z</updated>
+    <updated>2015-01-27T17:45:34.000Z</updated>
     <content type="html"><![CDATA[<p>最近发现vim的配色不能被 xterm，tmux很好的支持，许多网上的配置也不work，试了很多配置，发现tmux中的配置不是必须的，只需在bashrc 和vimrc中配置即可</p>
 <p><a id="more"></a><br>.bashrc: </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> TERM=<span class="string">"xterm-256color"</span></div></pre></td></tr></table></figure>
@@ -126,7 +126,7 @@
     <link href="http://www.ibartman.com/2013/06/06/HP-V3704-%E5%88%B7BIOS-%E9%BB%91%E5%B1%8F%EF%BC%8C%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
     <id>http://www.ibartman.com/2013/06/06/HP-V3704-刷BIOS-黑屏，解决办法/</id>
     <published>2013-06-06T10:56:40.000Z</published>
-    <updated>2015-01-25T06:48:08.000Z</updated>
+    <updated>2015-01-27T17:45:34.000Z</updated>
     <content type="html"><![CDATA[<p>首先，转载一篇相关博文<br><a href="http://diybbs.zol.com.cn/1/34121_2331.html" target="_blank" rel="external">http://diybbs.zol.com.cn/1/34121_2331.html</a><br>目前刷BIOS激活WIN7很火,相信不少V3000本友遇到刷完BIOS黑屏(黑屏是指刷BIOS失败后开机后指示灯都亮就屏幕不亮,不是指因为HP主板问题黑屏)的现象,一定非常着急吧!<br>(ps:如果你对我这个教程持怀疑态度,那就请你不要往下看咯!未必我写这么久!写来骗大家?!!!)</p>
 <p>教大家一个强刷BIOS恢复黑屏的办法:(本人在V3000系列成功,其他机型请慎重!!)</p>
 <p><a id="more"></a></p>
@@ -167,7 +167,7 @@
     <link href="http://www.ibartman.com/2012/09/30/Linux-%E4%B8%8B%E8%AE%BE%E7%BD%AE%E4%B8%A4%E4%B8%AA%E4%B8%BB%E6%9C%BA%E9%80%9A%E8%BF%87router%E4%B8%8A%E7%BD%91/"/>
     <id>http://www.ibartman.com/2012/09/30/Linux-下设置两个主机通过router上网/</id>
     <published>2012-09-30T17:45:51.000Z</published>
-    <updated>2015-01-25T06:50:42.000Z</updated>
+    <updated>2015-01-27T17:45:34.000Z</updated>
     <content type="html"><![CDATA[<p>搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。<br><a id="more"></a><br><code>sudo vi /etc/network/interfaces</code><br>配置如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">endpoint <span class="number">1</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">1.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">gw <span class="number">10.1</span>.<span class="number">1.2</span>              //gateway是router eth1的ip </div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain </div><div class="line"> </div><div class="line">endpoint <span class="number">2</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">2.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">gw <span class="number">10.1</span>.<span class="number">2.2</span>             //gateway是router eth2的ip</div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain</div></pre></td></tr></table></figure>
 
@@ -205,7 +205,7 @@
     <link href="http://www.ibartman.com/2012/03/16/%E7%94%A8CD-%E5%AE%89%E8%A3%85openBSD-%EF%BC%88Alpha-Mac-G4-Sparc64/"/>
     <id>http://www.ibartman.com/2012/03/16/用CD-安装openBSD-（Alpha-Mac-G4-Sparc64/</id>
     <published>2012-03-16T09:49:26.000Z</published>
-    <updated>2015-01-25T06:52:19.000Z</updated>
+    <updated>2015-01-27T17:45:34.000Z</updated>
     <content type="html"><![CDATA[<p>今天记录的是之前在这三个平台上安装openBSD的方法，没安装过的朋友，首先阅读中文版的图解安装指南。<br><a href="http://www.bsdlover.cn/html/8/n-8.html" target="_blank" rel="external">http://www.bsdlover.cn/html/8/n-8.html</a><br><a id="more"></a><br>二. 三个平台的特殊性<br>首先需要在ftp://mirror.esc7.net/pub/OpenBSD/5.0/ 选择对应平台的镜像刻录成盘，镜像名字一般为install50.iso ，大小约200M。</p>
 <ol>
 <li><p>对于Alpha，开机按F2,或者ctrl+B，进入shell。然后输入 show device，查询设备名，一般第一项是硬盘，第二项是光盘，大概是DKA0 或者是 DKBO。这时输入 boot xxx（你查询到的名称），从光盘启动。<br>安装完成之后会提示reboot，这之后需要手动切换启动项为硬盘，不然会无限从光盘启动提示安装。<br>（英文安装指南：ftp://mirror.esc7.net/pub/OpenBSD/5.0/alpha/INSTALL.alpha）</p>
@@ -232,7 +232,7 @@
     <link href="http://www.ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/"/>
     <id>http://www.ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/</id>
     <published>2012-03-07T18:20:52.000Z</published>
-    <updated>2015-01-25T06:54:19.000Z</updated>
+    <updated>2015-01-27T17:45:34.000Z</updated>
     <content type="html"><![CDATA[<p>这一篇虽然讲的是具体在Octane上装OpenBSD, 比较细节，但是中间涉及到boot from DHCPD server，建立tftpd server 还是很有用的。<br>首先，由于Octane 没有光驱，usb，只能boot from DHCPD or BOOTP server . 建立 DHCPD server的过程如下：</p>
 <p><a href="http://www.linuxtopia.org/online_books/system_administration_books/ubuntu_starter_guide/ch07s04.html" target="_blank" rel="external">http://www.linuxtopia.org/online_books/system_administration_books/ubuntu_starter_guide/ch07s04.html</a></p>
 <ul>
@@ -317,7 +317,7 @@
     <link href="http://www.ibartman.com/2012/03/03/%E5%85%B3%E4%BA%8E%E5%A4%9A%E6%AC%A1%E5%88%9B%E5%BB%BA%E8%81%94%E6%83%B3%E6%81%A2%E5%A4%8D%E4%BB%8B%E8%B4%A8/"/>
     <id>http://www.ibartman.com/2012/03/03/关于多次创建联想恢复介质/</id>
     <published>2012-03-03T19:55:18.000Z</published>
-    <updated>2015-01-27T08:34:39.000Z</updated>
+    <updated>2015-01-27T17:45:34.000Z</updated>
     <content type="html"><![CDATA[<p>最近系统这块接触的比较多，系统的东西又杂，经常是做了就忘。而且自己不懂的时候，经常是中英文google交替搜索关键词，因为中文的网站好处是看的比较快，英文的网站信息比较全，如果把每次做的写成log，这样后人会少走一些弯路，自己将来也方便查阅。</p>
 <p> 首先声明，这篇文章仅是为了学习方便首次创建恢复介质失败，又想学习技巧的用户。<br> <a id="more"></a></p>
 <p>  我的是联想 thinkpad-x220，买完之后直接把原厂的系统格掉了，DIY之后发现蓝键失效。于是用朋友的恢复盘恢复回来，但是创建恢复盘提示不能第二次创建。于是google了一下<br>  原帖地址 <a href="http://thinkbbs.zol.com.cn/39/32108_388558.html" target="_blank" rel="external">http://thinkbbs.zol.com.cn/39/32108_388558.html</a></p>
