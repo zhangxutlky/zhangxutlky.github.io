@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>关于多次创建联想恢复介质 | My Cyber Space</title>
+    <title>关于多次创建联想恢复介质 | Bartman&#39;s Cave</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xu">
@@ -17,12 +17,12 @@
  首先声明，这篇文章仅是为了学习方便首次创建恢复介质失败，又想学习技巧的用户。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于多次创建联想恢复介质">
-<meta property="og:url" content="ibartman.com/2012/03/03/关于多次创建联想恢复介质/">
-<meta property="og:site_name" content="My Cyber Space">
+<meta property="og:url" content="http://www.ibartman.com/2012/03/03/关于多次创建联想恢复介质/">
+<meta property="og:site_name" content="Bartman's Cave">
 <meta property="og:description" content="最近系统这块接触的比较多，系统的东西又杂，经常是做了就忘。而且自己不懂的时候，经常是中英文google交替搜索关键词，因为中文的网站好处是看的比较快，英文的网站信息比较全，如果把每次做的写成log，这样后人会少走一些弯路，自己将来也方便查阅。
  首先声明，这篇文章仅是为了学习方便首次创建恢复介质失败，又想学习技巧的用户。">
-<meta property="og:image" content="/img/4.png">
-<meta property="og:image" content="/img/5.png">
+<meta property="og:image" content="https://lh4.googleusercontent.com/-F4TAJMkuuFY/VMa-fH4maMI/AAAAAAAAAAk/C6kU_apBcVw/w490-h278-no/4.png">
+<meta property="og:image" content="https://lh5.googleusercontent.com/-W4TgN9os1nk/VMa-hc4cYyI/AAAAAAAAAAs/gEJlKOA1kYc/w624-h286-no/5.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于多次创建联想恢复介质">
 <meta name="twitter:description" content="最近系统这块接触的比较多，系统的东西又杂，经常是做了就忘。而且自己不懂的时候，经常是中英文google交替搜索关键词，因为中文的网站好处是看的比较快，英文的网站信息比较全，如果把每次做的写成log，这样后人会少走一些弯路，自己将来也方便查阅。
@@ -31,7 +31,7 @@
 
 
     
-    <link rel="alternative" href="/atom.xml" title="My Cyber Space" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Bartman&#39;s Cave" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/batman.ico">
@@ -49,12 +49,12 @@
       <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/dk.png" alt="My Cyber Space" title="My Cyber Space"/></a>
+				<a href="/"><img src="/img/dk.png" alt="Bartman&#39;s Cave" title="Bartman&#39;s Cave"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="My Cyber Space">My Cyber Space</a></h1>
-				<h2 class="blog-motto"></h2>
+				<h1 class="site-name"><a href="/" title="Bartman&#39;s Cave">Bartman&#39;s Cave</a></h1>
+				<h2 class="blog-motto">my cyber blog</h2>
 			</div>
 			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
@@ -70,10 +70,9 @@
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:ibartman.com">
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
 					</form>
 					
 					</li>
@@ -114,7 +113,7 @@
 <blockquote>
 <p>这里说的恢复介质是指双击Q盘弹出的“创建恢复介质”的恢复介质，即通过此介质可以恢复系统至出厂状态。<br>拿到后第一件事要备份一下原厂的系统，于是打开Q盘，成功创建了一次恢复介质到移动硬盘。<br>但由于这次是抱着试一试的态度，而且想在移动硬盘上重新分个小一点的区来保存恢复介质。于是把移动硬盘给重新分了区，保存的恢复介质的那个区自然被格式化了。<br>然后我就想再次创建恢复介质，这时问题就来了，由于Windows许可证的限制，只允许我创建一次，杯具了。。。<br>其实操作起来相当简单~<br>第一步，设置文件夹选项，Win7是在菜单栏那块儿“组织”选项里的“文件夹和搜索选项”，将“隐藏受保护的操作系统文件”前的勾去掉，并选择“显示隐藏的文件、文件夹和驱动器”这一项<br>第二步，打开我的电脑，找到Q盘，右键点击，选择“打开自动播放”<br>第三步，此时会跳出自动播放的Q盘，选择“打开文件夹以查看文件”，这时候你就会看到Q盘里的内容，这时候你打开FactoryRecovery文件夹，在这个文件夹里你会看到一个service_done.ini的文件，打开一看，有这么一句话：[SERVICE]  DONE=1，哈哈，终于找到了罪魁祸首！你再仔细一看，会发现这个文件创建的日期和其他的不同！这是当然了，因为这个文件是在你第一次成功创建恢复介质之后自动创建的，也正是因为有了这个文件，才会在你第二次尝试制作恢复介质的时候限制你。<br>最后一步，将service_done.ini删除，大功告成。<br>这时候，你再去双击Q盘，就可以顺利的创建恢复介质了，于是我就赶紧在移动硬盘里创建了一份，结果当然是成功了~</p>
 </blockquote>
-<p>  问题是按照这种方法去做之后，并不能100%保证创建成功，在创建过程中，会询问创建启动介质还是数据介质，如果勾选数据介质，就会提示错误，然后退出创建。<br>  <img src="/img/4.png" alt=""><br>  于是又google了一下，发现需要在Factory Recovery 目录下创建cdrivebackup.wim 和Qdrivebackup.wim两个文件，这样之后，就不会出现错误了。<br>  <img src="/img/5.png" alt=""></p>
+<p>  问题是按照这种方法去做之后，并不能100%保证创建成功，在创建过程中，会询问创建启动介质还是数据介质，如果勾选数据介质，就会提示错误，然后退出创建。<br>  <img src="https://lh4.googleusercontent.com/-F4TAJMkuuFY/VMa-fH4maMI/AAAAAAAAAAk/C6kU_apBcVw/w490-h278-no/4.png" alt=""><br>  于是又google了一下，发现需要在Factory Recovery 目录下创建cdrivebackup.wim 和Qdrivebackup.wim两个文件，这样之后，就不会出现错误了。<br>  <img src="https://lh5.googleusercontent.com/-W4TgN9os1nk/VMa-hc4cYyI/AAAAAAAAAAs/gEJlKOA1kYc/w624-h286-no/5.png" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -137,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="ibartman.com/2012/03/03/关于多次创建联想恢复介质/" data-title="关于多次创建联想恢复介质 | My Cyber Space" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.ibartman.com/2012/03/03/关于多次创建联想恢复介质/" data-title="关于多次创建联想恢复介质 | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -207,9 +206,9 @@
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/installation/" title="installation">installation<sup>2</sup></a></li>
-		
 			<li><a href="/tags/hexo/" title="hexo">hexo<sup>2</sup></a></li>
+		
+			<li><a href="/tags/installation/" title="installation">installation<sup>2</sup></a></li>
 		
 			<li><a href="/tags/BIOS/" title="BIOS">BIOS<sup>1</sup></a></li>
 		
@@ -294,7 +293,7 @@
 	</div>
 		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme modified from <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
 		
-		<a href="ibartman.com/about" target="_blank" title="Xu">Xu</a>
+		<a href="http://www.ibartman.com/about" target="_blank" title="Xu">Xu</a>
 		
 		</p>
 </div>

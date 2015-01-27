@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[My Cyber Space]]></title>
-  
+  <title><![CDATA[Bartman's Cave]]></title>
+  <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="ibartman.com/"/>
-  <updated>2015-01-25T08:08:34.307Z</updated>
-  <id>ibartman.com/</id>
+  <link href="http://www.ibartman.com/"/>
+  <updated>2015-01-27T08:35:30.063Z</updated>
+  <id>http://www.ibartman.com/</id>
   
   <author>
     <name><![CDATA[Xu]]></name>
@@ -16,32 +16,34 @@
   
   <entry>
     <title><![CDATA[add personal domains]]></title>
-    <link href="ibartman.com/2015/01/24/add-personal-domains/"/>
-    <id>ibartman.com/2015/01/24/add-personal-domains/</id>
+    <link href="http://www.ibartman.com/2015/01/24/add-personal-domains/"/>
+    <id>http://www.ibartman.com/2015/01/24/add-personal-domains/</id>
     <published>2015-01-25T03:14:23.000Z</published>
-    <updated>2015-01-25T07:05:37.000Z</updated>
+    <updated>2015-01-27T08:34:39.000Z</updated>
     <content type="html"><![CDATA[<p>source:<br><a href="http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html" target="_blank" rel="external">http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html</a></p>
 <ol>
 <li>绑定自己的域名很简单，两步走。但是在绑定之前，你需要已经生成了你的github主页（如：你的用户名.github.io）。</li>
-<li>创建一个CNAME文件（文件名叫CNAME，没有文件后缀），并上传至你的主页项目中。<br><img src="/img/2.png" alt=""></li>
-<li>前往你的DNS服务商新建一个CNAME解析至你的github page个人主页地址（如：xiangming.github.io）。DNSPod需要多加一个点，即xiangming.github.io.<br><img src="/img/3.png" alt=""></li>
-<li>等待更改生效，一般几分钟就可以使用你自定义的域名进行访问了。</li>
+<li>创建一个CNAME文件（文件名叫CNAME，没有文件后缀），并上传至你的主页项目中。</li>
+<li><p>前往你的DNS服务商新建一个CNAME解析至你的github page个人主页地址（如：xiangming.github.io）。DNSPod需要多加一个点，即xiangming.github.io.<br>(这里我是ping 我的xxx.github.io,得到ip地址,在DNS pod里面用的是这个ip地址)</p>
+</li>
+<li><p>等待更改生效，一般几分钟就可以使用你自定义的域名进行访问了。</p>
+</li>
 </ol>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>source:<br><a href="http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html" target="_blank" rel="external">http://jingyan.baidu.c]]>
     </summary>
     
-      <category term="hexo" scheme="ibartman.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://www.ibartman.com/tags/hexo/"/>
     
-      <category term="hexo" scheme="ibartman.com/categories/hexo/"/>
+      <category term="hexo" scheme="http://www.ibartman.com/categories/hexo/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[my_first_post]]></title>
-    <link href="ibartman.com/2015/01/23/my_first_post/"/>
-    <id>ibartman.com/2015/01/23/my_first_post/</id>
+    <link href="http://www.ibartman.com/2015/01/23/my_first_post/"/>
+    <id>http://www.ibartman.com/2015/01/23/my_first_post/</id>
     <published>2015-01-23T22:43:05.000Z</published>
     <updated>2015-01-25T04:50:10.000Z</updated>
     <content type="html"><![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/</a><br>Ubuntu下的:<br><a href="http://blog.maxwi.com/2014/02/22/first-post/" target="_blank" rel="external">http://blog.maxwi.com/2014/02/22/first-post/</a><br>最后,还要特别说明以下,我使用的hexo 2.8.3,出现了一个问题,安装主题之后不能正常显示,搜索很久才找到原因:(刚刚安装这个软件的童鞋可能也会遇到这个问题)<br>解决办法:</p>
@@ -54,16 +56,16 @@
     <![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a hre]]>
     </summary>
     
-      <category term="hexo" scheme="ibartman.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://www.ibartman.com/tags/hexo/"/>
     
-      <category term="hexo" scheme="ibartman.com/categories/hexo/"/>
+      <category term="hexo" scheme="http://www.ibartman.com/categories/hexo/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[解决chrome 在ubuntu 14.04 freeze的问题]]></title>
-    <link href="ibartman.com/2014/10/08/%E8%A7%A3%E5%86%B3chrome%20%E5%9C%A8ubuntu%2014.04%20freeze%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>ibartman.com/2014/10/08/解决chrome 在ubuntu 14.04 freeze的问题/</id>
+    <link href="http://www.ibartman.com/2014/10/08/%E8%A7%A3%E5%86%B3chrome%20%E5%9C%A8ubuntu%2014.04%20freeze%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.ibartman.com/2014/10/08/解决chrome 在ubuntu 14.04 freeze的问题/</id>
     <published>2014-10-08T13:07:00.000Z</published>
     <updated>2015-01-25T06:52:50.000Z</updated>
     <content type="html"><![CDATA[<p>以下转载一篇文章 , 禁用 加速解决freeze的问题<br><a id="more"></a></p>
@@ -83,16 +85,16 @@
     
     </summary>
     
-      <category term="linux" scheme="ibartman.com/tags/linux/"/>
+      <category term="linux" scheme="http://www.ibartman.com/tags/linux/"/>
     
-      <category term="linux" scheme="ibartman.com/categories/linux/"/>
+      <category term="linux" scheme="http://www.ibartman.com/categories/linux/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[vim 配色]]></title>
-    <link href="ibartman.com/2014/04/17/vim%20%E9%85%8D%E8%89%B2/"/>
-    <id>ibartman.com/2014/04/17/vim 配色/</id>
+    <link href="http://www.ibartman.com/2014/04/17/vim%20%E9%85%8D%E8%89%B2/"/>
+    <id>http://www.ibartman.com/2014/04/17/vim 配色/</id>
     <published>2014-04-17T12:53:00.000Z</published>
     <updated>2015-01-25T06:51:09.000Z</updated>
     <content type="html"><![CDATA[<p>最近发现vim的配色不能被 xterm，tmux很好的支持，许多网上的配置也不work，试了很多配置，发现tmux中的配置不是必须的，只需在bashrc 和vimrc中配置即可</p>
@@ -111,18 +113,18 @@
     
     </summary>
     
-      <category term="vim" scheme="ibartman.com/tags/vim/"/>
+      <category term="vim" scheme="http://www.ibartman.com/tags/vim/"/>
     
-      <category term="colorscheme" scheme="ibartman.com/tags/colorscheme/"/>
+      <category term="colorscheme" scheme="http://www.ibartman.com/tags/colorscheme/"/>
     
-      <category term="vim" scheme="ibartman.com/categories/vim/"/>
+      <category term="vim" scheme="http://www.ibartman.com/categories/vim/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HP V3704 刷BIOS 黑屏，解决办法]]></title>
-    <link href="ibartman.com/2013/06/06/HP-V3704-%E5%88%B7BIOS-%E9%BB%91%E5%B1%8F%EF%BC%8C%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
-    <id>ibartman.com/2013/06/06/HP-V3704-刷BIOS-黑屏，解决办法/</id>
+    <link href="http://www.ibartman.com/2013/06/06/HP-V3704-%E5%88%B7BIOS-%E9%BB%91%E5%B1%8F%EF%BC%8C%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://www.ibartman.com/2013/06/06/HP-V3704-刷BIOS-黑屏，解决办法/</id>
     <published>2013-06-06T10:56:40.000Z</published>
     <updated>2015-01-25T06:48:08.000Z</updated>
     <content type="html"><![CDATA[<p>首先，转载一篇相关博文<br><a href="http://diybbs.zol.com.cn/1/34121_2331.html" target="_blank" rel="external">http://diybbs.zol.com.cn/1/34121_2331.html</a><br>目前刷BIOS激活WIN7很火,相信不少V3000本友遇到刷完BIOS黑屏(黑屏是指刷BIOS失败后开机后指示灯都亮就屏幕不亮,不是指因为HP主板问题黑屏)的现象,一定非常着急吧!<br>(ps:如果你对我这个教程持怀疑态度,那就请你不要往下看咯!未必我写这么久!写来骗大家?!!!)</p>
@@ -154,16 +156,16 @@
     
     </summary>
     
-      <category term="BIOS" scheme="ibartman.com/tags/BIOS/"/>
+      <category term="BIOS" scheme="http://www.ibartman.com/tags/BIOS/"/>
     
-      <category term="windows" scheme="ibartman.com/categories/windows/"/>
+      <category term="windows" scheme="http://www.ibartman.com/categories/windows/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Linux 下设置两个主机通过router上网]]></title>
-    <link href="ibartman.com/2012/09/30/Linux-%E4%B8%8B%E8%AE%BE%E7%BD%AE%E4%B8%A4%E4%B8%AA%E4%B8%BB%E6%9C%BA%E9%80%9A%E8%BF%87router%E4%B8%8A%E7%BD%91/"/>
-    <id>ibartman.com/2012/09/30/Linux-下设置两个主机通过router上网/</id>
+    <link href="http://www.ibartman.com/2012/09/30/Linux-%E4%B8%8B%E8%AE%BE%E7%BD%AE%E4%B8%A4%E4%B8%AA%E4%B8%BB%E6%9C%BA%E9%80%9A%E8%BF%87router%E4%B8%8A%E7%BD%91/"/>
+    <id>http://www.ibartman.com/2012/09/30/Linux-下设置两个主机通过router上网/</id>
     <published>2012-09-30T17:45:51.000Z</published>
     <updated>2015-01-25T06:50:42.000Z</updated>
     <content type="html"><![CDATA[<p>搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。<br><a id="more"></a><br><code>sudo vi /etc/network/interfaces</code><br>配置如下</p>
@@ -192,16 +194,16 @@
     
     </summary>
     
-      <category term="networking" scheme="ibartman.com/tags/networking/"/>
+      <category term="networking" scheme="http://www.ibartman.com/tags/networking/"/>
     
-      <category term="linux" scheme="ibartman.com/categories/linux/"/>
+      <category term="linux" scheme="http://www.ibartman.com/categories/linux/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[用CD 安装openBSD （Alpha, Mac G4, Sparc64)]]></title>
-    <link href="ibartman.com/2012/03/16/%E7%94%A8CD-%E5%AE%89%E8%A3%85openBSD-%EF%BC%88Alpha-Mac-G4-Sparc64/"/>
-    <id>ibartman.com/2012/03/16/用CD-安装openBSD-（Alpha-Mac-G4-Sparc64/</id>
+    <link href="http://www.ibartman.com/2012/03/16/%E7%94%A8CD-%E5%AE%89%E8%A3%85openBSD-%EF%BC%88Alpha-Mac-G4-Sparc64/"/>
+    <id>http://www.ibartman.com/2012/03/16/用CD-安装openBSD-（Alpha-Mac-G4-Sparc64/</id>
     <published>2012-03-16T09:49:26.000Z</published>
     <updated>2015-01-25T06:52:19.000Z</updated>
     <content type="html"><![CDATA[<p>今天记录的是之前在这三个平台上安装openBSD的方法，没安装过的朋友，首先阅读中文版的图解安装指南。<br><a href="http://www.bsdlover.cn/html/8/n-8.html" target="_blank" rel="external">http://www.bsdlover.cn/html/8/n-8.html</a><br><a id="more"></a><br>二. 三个平台的特殊性<br>首先需要在ftp://mirror.esc7.net/pub/OpenBSD/5.0/ 选择对应平台的镜像刻录成盘，镜像名字一般为install50.iso ，大小约200M。</p>
@@ -219,16 +221,16 @@
     
     </summary>
     
-      <category term="installation" scheme="ibartman.com/tags/installation/"/>
+      <category term="installation" scheme="http://www.ibartman.com/tags/installation/"/>
     
-      <category term="BSD" scheme="ibartman.com/categories/BSD/"/>
+      <category term="BSD" scheme="http://www.ibartman.com/categories/BSD/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Install OpenBSD on Octane (sgi)]]></title>
-    <link href="ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/"/>
-    <id>ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/</id>
+    <link href="http://www.ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/"/>
+    <id>http://www.ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/</id>
     <published>2012-03-07T18:20:52.000Z</published>
     <updated>2015-01-25T06:54:19.000Z</updated>
     <content type="html"><![CDATA[<p>这一篇虽然讲的是具体在Octane上装OpenBSD, 比较细节，但是中间涉及到boot from DHCPD server，建立tftpd server 还是很有用的。<br>首先，由于Octane 没有光驱，usb，只能boot from DHCPD or BOOTP server . 建立 DHCPD server的过程如下：</p>
@@ -304,25 +306,25 @@
     
     </summary>
     
-      <category term="installation" scheme="ibartman.com/tags/installation/"/>
+      <category term="installation" scheme="http://www.ibartman.com/tags/installation/"/>
     
-      <category term="BSD" scheme="ibartman.com/categories/BSD/"/>
+      <category term="BSD" scheme="http://www.ibartman.com/categories/BSD/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[关于多次创建联想恢复介质]]></title>
-    <link href="ibartman.com/2012/03/03/%E5%85%B3%E4%BA%8E%E5%A4%9A%E6%AC%A1%E5%88%9B%E5%BB%BA%E8%81%94%E6%83%B3%E6%81%A2%E5%A4%8D%E4%BB%8B%E8%B4%A8/"/>
-    <id>ibartman.com/2012/03/03/关于多次创建联想恢复介质/</id>
+    <link href="http://www.ibartman.com/2012/03/03/%E5%85%B3%E4%BA%8E%E5%A4%9A%E6%AC%A1%E5%88%9B%E5%BB%BA%E8%81%94%E6%83%B3%E6%81%A2%E5%A4%8D%E4%BB%8B%E8%B4%A8/"/>
+    <id>http://www.ibartman.com/2012/03/03/关于多次创建联想恢复介质/</id>
     <published>2012-03-03T19:55:18.000Z</published>
-    <updated>2015-01-25T06:51:37.000Z</updated>
+    <updated>2015-01-27T08:34:39.000Z</updated>
     <content type="html"><![CDATA[<p>最近系统这块接触的比较多，系统的东西又杂，经常是做了就忘。而且自己不懂的时候，经常是中英文google交替搜索关键词，因为中文的网站好处是看的比较快，英文的网站信息比较全，如果把每次做的写成log，这样后人会少走一些弯路，自己将来也方便查阅。</p>
 <p> 首先声明，这篇文章仅是为了学习方便首次创建恢复介质失败，又想学习技巧的用户。<br> <a id="more"></a></p>
 <p>  我的是联想 thinkpad-x220，买完之后直接把原厂的系统格掉了，DIY之后发现蓝键失效。于是用朋友的恢复盘恢复回来，但是创建恢复盘提示不能第二次创建。于是google了一下<br>  原帖地址 <a href="http://thinkbbs.zol.com.cn/39/32108_388558.html" target="_blank" rel="external">http://thinkbbs.zol.com.cn/39/32108_388558.html</a></p>
 <blockquote>
 <p>这里说的恢复介质是指双击Q盘弹出的“创建恢复介质”的恢复介质，即通过此介质可以恢复系统至出厂状态。<br>拿到后第一件事要备份一下原厂的系统，于是打开Q盘，成功创建了一次恢复介质到移动硬盘。<br>但由于这次是抱着试一试的态度，而且想在移动硬盘上重新分个小一点的区来保存恢复介质。于是把移动硬盘给重新分了区，保存的恢复介质的那个区自然被格式化了。<br>然后我就想再次创建恢复介质，这时问题就来了，由于Windows许可证的限制，只允许我创建一次，杯具了。。。<br>其实操作起来相当简单~<br>第一步，设置文件夹选项，Win7是在菜单栏那块儿“组织”选项里的“文件夹和搜索选项”，将“隐藏受保护的操作系统文件”前的勾去掉，并选择“显示隐藏的文件、文件夹和驱动器”这一项<br>第二步，打开我的电脑，找到Q盘，右键点击，选择“打开自动播放”<br>第三步，此时会跳出自动播放的Q盘，选择“打开文件夹以查看文件”，这时候你就会看到Q盘里的内容，这时候你打开FactoryRecovery文件夹，在这个文件夹里你会看到一个service_done.ini的文件，打开一看，有这么一句话：[SERVICE]  DONE=1，哈哈，终于找到了罪魁祸首！你再仔细一看，会发现这个文件创建的日期和其他的不同！这是当然了，因为这个文件是在你第一次成功创建恢复介质之后自动创建的，也正是因为有了这个文件，才会在你第二次尝试制作恢复介质的时候限制你。<br>最后一步，将service_done.ini删除，大功告成。<br>这时候，你再去双击Q盘，就可以顺利的创建恢复介质了，于是我就赶紧在移动硬盘里创建了一份，结果当然是成功了~</p>
 </blockquote>
-<p>  问题是按照这种方法去做之后，并不能100%保证创建成功，在创建过程中，会询问创建启动介质还是数据介质，如果勾选数据介质，就会提示错误，然后退出创建。<br>  <img src="/img/4.png" alt=""><br>  于是又google了一下，发现需要在Factory Recovery 目录下创建cdrivebackup.wim 和Qdrivebackup.wim两个文件，这样之后，就不会出现错误了。<br>  <img src="/img/5.png" alt=""></p>
+<p>  问题是按照这种方法去做之后，并不能100%保证创建成功，在创建过程中，会询问创建启动介质还是数据介质，如果勾选数据介质，就会提示错误，然后退出创建。<br>  <img src="https://lh4.googleusercontent.com/-F4TAJMkuuFY/VMa-fH4maMI/AAAAAAAAAAk/C6kU_apBcVw/w490-h278-no/4.png" alt=""><br>  于是又google了一下，发现需要在Factory Recovery 目录下创建cdrivebackup.wim 和Qdrivebackup.wim两个文件，这样之后，就不会出现错误了。<br>  <img src="https://lh5.googleusercontent.com/-W4TgN9os1nk/VMa-hc4cYyI/AAAAAAAAAAs/gEJlKOA1kYc/w624-h286-no/5.png" alt=""></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>最近系统这块接触的比较多，系统的东西又杂，经常是做了就忘。而且自己不懂的时候，经常是中英文google交替搜索关键词，因为中文的网站好处是看的比较快，英文的网站信息比较全，如果把每次做的写成log，这样后人会少走一些弯路，自己将来也方便查阅。</p>
@@ -330,9 +332,9 @@
     
     </summary>
     
-      <category term="系统恢复" scheme="ibartman.com/tags/%E7%B3%BB%E7%BB%9F%E6%81%A2%E5%A4%8D/"/>
+      <category term="系统恢复" scheme="http://www.ibartman.com/tags/%E7%B3%BB%E7%BB%9F%E6%81%A2%E5%A4%8D/"/>
     
-      <category term="windows" scheme="ibartman.com/categories/windows/"/>
+      <category term="windows" scheme="http://www.ibartman.com/categories/windows/"/>
     
   </entry>
   
