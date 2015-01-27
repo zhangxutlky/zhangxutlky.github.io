@@ -114,7 +114,7 @@
 <ul>
 <li>假设已经在第一台电脑设置好两个repo, 当首次在另一台新的电脑上编辑博客时:</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone repo1</div><div class="line">git clone repo2</div><div class="line">mv repo1/ .repo2/.deploy/</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone repo1</div><div class="line">git clone repo2</div><div class="line">mv repo1/ repo2/.deploy/</div></pre></td></tr></table></figure>
 
 <ul>
 <li><p>创建 fetch.sh 和 submit.sh,放在src的根目录</p>

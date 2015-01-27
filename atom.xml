@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ibartman.com/"/>
-  <updated>2015-01-27T21:32:30.169Z</updated>
+  <updated>2015-01-27T21:49:11.689Z</updated>
   <id>http://www.ibartman.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://www.ibartman.com/2015/01/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86hexo-%E6%BA%90%E6%96%87%E4%BB%B6/"/>
     <id>http://www.ibartman.com/2015/01/27/如何实现多台电脑管理hexo-源文件/</id>
     <published>2015-01-27T18:43:44.000Z</published>
-    <updated>2015-01-27T21:32:06.000Z</updated>
+    <updated>2015-01-27T21:48:29.000Z</updated>
     <content type="html"><![CDATA[<p>折腾hexo已经快一周了, 看了各种教程, 基本实现多台电脑同时编辑博客.</p>
 <p>基本方法是使用两个git repo,一个管理site,一个管理src.<br>site就是 xxx.github.io ,存储的是网站的html,用repo1 管理. src 管理的是编辑 blog 时的源文件,用repo2 管理. (src 的gitignore 文件,加入 .deploy 和 public). 这样通过同步repo2,就能实现不同电脑编辑博客文件了.</p>
 <p>但是昨天发现了一个问题, 虽然repo2 同步没问题,但是repo1的master branch 总是被重置.<br><a id="more"></a><br>具体的是,假设我有两台电脑 computer1, computer2. 他们各自管理自己repo1的版本<br>computer1 : ver1, ver2, ver3 …<br>computer2 : ver1`, ver2`, ver3` …<br>这样如果换电脑编辑,博客是能顺利更新,就是repo1 会被重新刷新成另一台电脑的版本. 而我想要的是保留所有的版本.</p>
@@ -28,7 +28,7 @@
 <ul>
 <li>假设已经在第一台电脑设置好两个repo, 当首次在另一台新的电脑上编辑博客时:</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone repo1</div><div class="line">git clone repo2</div><div class="line">mv repo1/ .repo2/.deploy/</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone repo1</div><div class="line">git clone repo2</div><div class="line">mv repo1/ repo2/.deploy/</div></pre></td></tr></table></figure>
 
 <ul>
 <li><p>创建 fetch.sh 和 submit.sh,放在src的根目录</p>
