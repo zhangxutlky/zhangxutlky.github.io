@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ibartman.com/"/>
-  <updated>2015-01-29T22:57:47.462Z</updated>
+  <updated>2015-01-30T04:53:31.107Z</updated>
   <id>http://www.ibartman.com/</id>
   
   <author>
@@ -13,6 +13,48 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[建立ssh tunnel]]></title>
+    <link href="http://www.ibartman.com/2015/01/29/%E5%BB%BA%E7%AB%8Bssh-tunnel/"/>
+    <id>http://www.ibartman.com/2015/01/29/建立ssh-tunnel/</id>
+    <published>2015-01-30T03:31:50.000Z</published>
+    <updated>2015-01-30T04:53:05.000Z</updated>
+    <content type="html"><![CDATA[<p>觉得解释很好的一篇文章:<br><a href="https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/" target="_blank" rel="external">https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/</a></p>
+<p>ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差用宾馆的wifi就很不安全, 使用ssh tunnel会把你的traffic加密. 它还有一个用途是绕过防火墙.在这一点上,它的作用相当于一个简易的VPN.<br><a id="more"></a><br>ssh tunnel 是基于 port forwarding 的,这里用的 port forwarding 是指把数据包本地的地址和/或端口转换到另一个地址. 说白了,比如自己的电脑A想浏览facebook,但是facebook被防火墙屏蔽掉了.这时A如果可以连接到电脑B,而B处在防火墙之外.A 可以把对facebook的请求通过port forwording 转给B, B和facebook的服务器通信,然后再转发给A. 这样表面看来是A和B建立了一个加密的tunnel,实际上这个tunnel是用来转发A对facebook的请求.<br>基本命令是:(假设facebook主机的端口是80)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -L <span class="number">9001</span>:facebook.com:<span class="number">80</span> &lt;username@remotehostB&gt;</div></pre></td></tr></table></figure>
+
+<p>这样, 在浏览器打入 <a href="http://localhost:9001" target="_blank" rel="external">http://localhost:9001</a>,本地对facebook的请求会被转发到主机B上.</p>
+<ul>
+<li>可以通过加密的ssh tunnel 传输各种数据,不仅仅是浏览网页.</li>
+<li>ssh reverse tunnel是ssh tunnel的逆向,原理完全相同.</li>
+<li>无论是说的ssh tunnel或是 ssh reverse tunnel 都需要对每个想浏览的网站做单独配置.(比如刚才例子的facebook), </li>
+</ul>
+<p>下面介绍一种动态的port forwarding 办法<br>命令行输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -D <span class="number">9001</span> &lt;username@remotehostB&gt;</div></pre></td></tr></table></figure>
+
+<p>这时SSH 会创建一个SOCKS proxy 监听本地端口 9001,如果收到请求它会通过ssh tunnel转发到B. 这需要在浏览器里面配置SOCKS proxy 到 locoalhost:9001.<br>以下是如何在firefox中配置SOCKS 到 localhost的9001端口:<br>来源:<br><a href="https://calomel.org/firefox_ssh_proxy.html" target="_blank" rel="external">https://calomel.org/firefox_ssh_proxy.html</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Manual proxy configuration:</div><div class="line">SOCKS Proxy  <span class="number">127.0</span>.<span class="number">0.1</span>  Port <span class="number">9001</span></div><div class="line">check the box <span class="keyword">for</span> <span class="string">"SOCKS v5"</span></div></pre></td></tr></table></figure>
+
+<p>建议同时设置DNS proxying thourgh SOCKS5, 因为如果防火墙进行DNS 投毒, 本地浏览器产生的DNS请求会得到错误的address.<br>在firefox里键入<code>about:config</code>,找到项目 <code>network.proxy.socks_remote_dns</code>,然后把它设置为true.</p>
+<p>最后,在执行ssh 命令时,可以加入以下可选的flag:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -C2qTnN -D <span class="number">9001</span> &lt;username@remotehostB&gt;</div></pre></td></tr></table></figure>
+
+<p>To summarize in order: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-C: Compression</div><div class="line">-<span class="number">2</span>: SSH2 only</div><div class="line">-q: Quite</div><div class="line">-T: Force pseudo-tty allocation</div><div class="line">-n: Redirect stdin from /dev/null</div><div class="line">-N: Place the ssh client into <span class="string">"master"</span> mode <span class="keyword">for</span> connection sharing</div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>觉得解释很好的一篇文章:<br><a href="https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/" target="_blank" rel="external">https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/</a></p>
+<p>ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差用宾馆的wifi就很不安全, 使用ssh tunnel会把你的traffic加密. 它还有一个用途是绕过防火墙.在这一点上,它的作用相当于一个简易的VPN.<br>]]>
+    
+    </summary>
+    
+      <category term="ssh, 翻墙" scheme="http://www.ibartman.com/tags/ssh-%E7%BF%BB%E5%A2%99/"/>
+    
+      <category term="networking" scheme="http://www.ibartman.com/categories/networking/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[如何用git实现多台电脑用hexo发布文章]]></title>
