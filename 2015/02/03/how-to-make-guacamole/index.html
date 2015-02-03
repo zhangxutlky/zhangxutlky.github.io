@@ -4,27 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>建立ssh tunnel | Bartman&#39;s Cave</title>
+    <title>how to make guacamole | Bartman&#39;s Cave</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xu">
     
-    <meta name="description" content="觉得解释很好的一篇文章:https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/
-ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差用宾馆的wifi就很不安全, 使用ssh tunnel会把你的traffic加密. 它还有一个用途是绕过防火墙.在这一点上,它的作用相当于一个简易的VPN.">
+    <meta name="description" content="Guacamole是一种以牛油果为主料的酱,一般搭配墨西哥玉米片来吃,味道非常清新爽口,制作也很简单.">
     
     
-    <meta name="description" content="觉得解释很好的一篇文章:https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/
-ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差用宾馆的wifi就很不安全, 使用ssh tunnel会把你的traffic加密. 它还有一个用途是绕过防火墙.在这一点上,它的作用相当于一个简易的V">
+    <meta name="description" content="Guacamole是一种以牛油果为主料的酱,一般搭配墨西哥玉米片来吃,味道非常清新爽口,制作也很简单.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="建立ssh tunnel">
-<meta property="og:url" content="http://www.ibartman.com/2015/01/29/建立ssh-tunnel/">
+<meta property="og:title" content="how to make guacamole">
+<meta property="og:url" content="http://www.ibartman.com/2015/02/03/how-to-make-guacamole/">
 <meta property="og:site_name" content="Bartman's Cave">
-<meta property="og:description" content="觉得解释很好的一篇文章:https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/
-ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差用宾馆的wifi就很不安全, 使用ssh tunnel会把你的traffic加密. 它还有一个用途是绕过防火墙.在这一点上,它的作用相当于一个简易的V">
+<meta property="og:description" content="Guacamole是一种以牛油果为主料的酱,一般搭配墨西哥玉米片来吃,味道非常清新爽口,制作也很简单.">
+<meta property="og:image" content="https://lh4.googleusercontent.com/-Fqxz-qofA68/VNELU9bzR5I/AAAAAAAAAEg/DxcqGiFdD4c/w968-h505-no/Screenshot%2Bfrom%2B2015-02-03%2B10%3A54%3A05.png">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-Y9KVZLpZe_Y/VNELEAZcyYI/AAAAAAAAAEU/okYhE_-hVlk/w1354-h863-no/My-Favorite-Guacamole-Recipe-Key-Ingredients.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="建立ssh tunnel">
-<meta name="twitter:description" content="觉得解释很好的一篇文章:https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/
-ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差用宾馆的wifi就很不安全, 使用ssh tunnel会把你的traffic加密. 它还有一个用途是绕过防火墙.在这一点上,它的作用相当于一个简易的V">
+<meta name="twitter:title" content="how to make guacamole">
+<meta name="twitter:description" content="Guacamole是一种以牛油果为主料的酱,一般搭配墨西哥玉米片来吃,味道非常清新爽口,制作也很简单.">
 <link rel="publisher" href="106468424491774485690">
 
 
@@ -85,14 +83,14 @@ ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/01/29/建立ssh-tunnel/" title="建立ssh tunnel" itemprop="url">建立ssh tunnel</a>
+      <a href="/2015/02/03/how-to-make-guacamole/" title="how to make guacamole" itemprop="url">how to make guacamole</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/106468424491774485690?rel=author" title="Xu" target="_blank" itemprop="author">Xu</a>
 		
   <p class="article-time">
-    <time datetime="2015-01-30T03:31:50.000Z" itemprop="datePublished"> Published 01-29-2015</time>
+    <time datetime="2015-02-03T17:56:08.000Z" itemprop="datePublished"> Published 02-03-2015</time>
     
   </p>
 </header>
@@ -105,29 +103,15 @@ ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差
 		
 		</div>
 		
-		<p>觉得解释很好的一篇文章:<br><a href="https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/" target="_blank" rel="external">https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/</a></p>
-<p>ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差用宾馆的wifi就很不安全, 使用ssh tunnel会把你的traffic加密. 它还有一个用途是绕过防火墙.在这一点上,它的作用相当于一个简易的VPN.<br><a id="more"></a><br>ssh tunnel 是基于 port forwarding 的,这里用的 port forwarding 是指把数据包本地的地址和/或端口转换到另一个地址. 说白了,比如自己的电脑A想浏览facebook,但是facebook被防火墙屏蔽掉了.这时A如果可以连接到电脑B,而B处在防火墙之外.A 可以把对facebook的请求通过port forwording 转给B, B和facebook的服务器通信,然后再转发给A. 这样表面看来是A和B建立了一个加密的tunnel,实际上这个tunnel是用来转发A对facebook的请求.<br>基本命令是:(假设facebook主机的端口是80)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -L <span class="number">9001</span>:facebook.com:<span class="number">80</span> &lt;username@remotehostB&gt;</div></pre></td></tr></table></figure>
-
-<p>这样, 在浏览器打入 <a href="http://localhost:9001" target="_blank" rel="external">http://localhost:9001</a>,本地对facebook的请求会被转发到主机B上.</p>
+		<p>Guacamole是一种以牛油果为主料的酱,一般搭配墨西哥玉米片来吃,味道非常清新爽口,制作也很简单.</p>
+<p><img src="https://lh4.googleusercontent.com/-Fqxz-qofA68/VNELU9bzR5I/AAAAAAAAAEg/DxcqGiFdD4c/w968-h505-no/Screenshot%2Bfrom%2B2015-02-03%2B10%3A54%3A05.png" alt=""><br><a id="more"></a><br><img src="https://lh3.googleusercontent.com/-Y9KVZLpZe_Y/VNELEAZcyYI/AAAAAAAAAEU/okYhE_-hVlk/w1354-h863-no/My-Favorite-Guacamole-Recipe-Key-Ingredients.jpg" alt=""></p>
 <ul>
-<li>可以通过加密的ssh tunnel 传输各种数据,不仅仅是浏览网页.</li>
-<li>ssh reverse tunnel是ssh tunnel的逆向,原理完全相同.</li>
-<li>无论是说的ssh tunnel或是 ssh reverse tunnel 都需要对每个想浏览的网站做单独配置.(比如刚才例子的facebook), </li>
+<li><p>Preparation:<br>Step 1: Completely slice the avocado in the middle (around the seed).<br>Step 2: Swivel/split apart the avocado into two halves.<br>Step 3: Remove and save the seed for later.<br>Step 4: With a spoon, completely scoop out the insides of the avocado.<br>Step 5: Place avocado insides into the preparation bowl (For smooth guacamole, try using a food processor. For chunky guacamole, mash with fork by hand.).<br>Step 6: Add desired ingredients (lime/lemon juice, salt/pepper, cilantro/basil, red/white onion, jalapeños, chili/cayenne, tomatoes).<br>Step 7: Mix/Process to desired texture.</p>
+</li>
+<li><p>Preservation:<br>Method 1: Place avocado seed in guacamole, directly place plastic wrap onto the guacamole (The plastic wrap should be touching the surface of the guacamole), then refrigerate.<br>Method 2: Completely seal guacamole in an airtight container and place in the freezer (will need to thaw) or refrigerator.</p>
+</li>
 </ul>
-<p>下面介绍一种动态的port forwarding 办法<br>命令行输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -D <span class="number">9001</span> &lt;username@remotehostB&gt;</div></pre></td></tr></table></figure>
-
-<p>这时SSH 会创建一个SOCKS proxy 监听本地端口 9001,如果收到请求它会通过ssh tunnel转发到B. 这需要在浏览器里面配置SOCKS proxy 到 locoalhost:9001.<br>以下是如何在firefox中配置SOCKS 到 localhost的9001端口:<br>来源:<br><a href="https://calomel.org/firefox_ssh_proxy.html" target="_blank" rel="external">https://calomel.org/firefox_ssh_proxy.html</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Manual proxy configuration:</div><div class="line">SOCKS Proxy  <span class="number">127.0</span>.<span class="number">0.1</span>  Port <span class="number">9001</span></div><div class="line">check the box <span class="keyword">for</span> <span class="string">"SOCKS v5"</span></div></pre></td></tr></table></figure>
-
-<p>建议同时设置DNS proxying thourgh SOCKS5, 因为如果防火墙进行DNS 投毒, 本地浏览器产生的DNS请求会得到错误的address.<br>在firefox里键入<code>about:config</code>,找到项目 <code>network.proxy.socks_remote_dns</code>,然后把它设置为true.</p>
-<p>最后,在执行ssh 命令时,可以加入以下可选的flag:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -C2qTnN -D <span class="number">9001</span> &lt;username@remotehostB&gt;</div></pre></td></tr></table></figure>
-
-<p>To summarize in order: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-C: Compression</div><div class="line">-<span class="number">2</span>: SSH2 only</div><div class="line">-q: Quite</div><div class="line">-T: Force pseudo-tty allocation</div><div class="line">-n: Redirect stdin from /dev/null</div><div class="line">-N: Place the ssh client into <span class="string">"master"</span> mode <span class="keyword">for</span> connection sharing</div></pre></td></tr></table></figure>
-
+<p>— source: wiki</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -135,13 +119,13 @@ ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/networking/">networking</a>
+  <a class="article-category-link" href="/categories/美食/">美食</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/ssh/">ssh</a><a href="/tags/翻墙/">翻墙</a>
+  <span></span> <a href="/tags/墨西哥菜/">墨西哥菜</a>
   </div>
 
 </div>
@@ -150,7 +134,7 @@ ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.ibartman.com/2015/01/29/建立ssh-tunnel/" data-title="建立ssh tunnel | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.ibartman.com/2015/02/03/how-to-make-guacamole/" data-title="how to make guacamole | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -163,19 +147,11 @@ ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/02/02/大盘鸡的做法/" title="新疆大盘鸡的做法">
-  <strong>上一篇：</strong><br/>
-  <span>
-  新疆大盘鸡的做法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/01/27/如何实现多台电脑管理hexo-源文件/"  title="如何用git实现多台电脑用hexo发布文章">
+<a href="/2015/02/02/大盘鸡的做法/"  title="新疆大盘鸡的做法">
  <strong>下一篇：</strong><br/> 
- <span>如何用git实现多台电脑用hexo发布文章
+ <span>新疆大盘鸡的做法
 </span>
 </a>
 </div>
