@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ibartman.com/"/>
-  <updated>2015-02-03T18:10:51.510Z</updated>
+  <updated>2015-02-11T21:37:03.749Z</updated>
   <id>http://www.ibartman.com/</id>
   
   <author>
@@ -13,6 +13,32 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[一个VPN的漏洞, 可以泄漏用户真实的IP]]></title>
+    <link href="http://www.ibartman.com/2015/02/11/%E4%B8%80%E4%B8%AAVPN%E7%9A%84%E6%BC%8F%E6%B4%9E-%E5%8F%AF%E4%BB%A5%E6%B3%84%E6%BC%8F%E7%94%A8%E6%88%B7%E7%9C%9F%E5%AE%9E%E7%9A%84IP/"/>
+    <id>http://www.ibartman.com/2015/02/11/一个VPN的漏洞-可以泄漏用户真实的IP/</id>
+    <published>2015-02-11T18:59:26.000Z</published>
+    <updated>2015-02-11T21:35:48.000Z</updated>
+    <content type="html"><![CDATA[<p>许多人用VPN来绕过区域的限制. 当连接到VPN后,通常你的IP地址会显示为exit server 的IP, 而不是你真正的IP. 但是最近的一个关于WebRTC (Web Real Time Communication) 安全漏洞, 使得用户真实的IP被泄漏即使用户使用VPN.<br>WebRTC 内建于大多数浏览器, 所有使用网页的应用也受到影响. 政府可以利用这个漏洞查看用户的真实IP地址.这个漏洞是被 <a href="https://daylightpirates.org/" target="_blank" rel="external">Daniel Roesler</a> 发现, 具体信息在 <a href="https://github.com/diafygi/webrtc-ips" target="_blank" rel="external">Git Hub</a>.</p>
+<p>查看自己的VPN是否受到影响:<br>用<a href="http://whatismyipaddress.com/" target="_blank" rel="external">what is my ip address</a> 分别查看登录VPN之前和之后自己的IP地址.</p>
+<p>简单的解决办法:</p>
+<ul>
+<li>chrome: 安装<a href="https://chrome.google.com/webstore/detail/scriptsafe/oiigbmnaadbkfbmpbfijlflahbdbdgdf?hl=en" target="_blank" rel="external">ScriptSafe</a> 插件</li>
+<li>firefox: 在Mozilla插件里禁用WebRTC, 或者打开浏览器输入 ‘about:cofig’ 找到 ‘media.peerconnection.enabled’, 设置为 false</li>
+</ul>
+<p>更好的方法:<br>在自己家的路由上设置VPN,这样可以保护所有自家的设备.<br>进入router的 admin 页面, 找到security或者conncetion的选项,不同的router可能会有区别, 找到VPN的设置,然后输入自己VPN的信息即可. 如果没有找到相关的设置, 可以去VPN那里查询支持的router型号.如果使用的是open source的firmware, 可以参考下面的 <a href="http://lifehacker.com/how-to-supercharge-your-router-with-dd-wrt-508138224" target="_blank" rel="external">教程</a></p>
+<p><a href="http://lifehacker.com/how-to-see-if-your-vpn-is-leaking-your-ip-address-and-1685180082" target="_blank" rel="external">原文</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>许多人用VPN来绕过区域的限制. 当连接到VPN后,通常你的IP地址会显示为exit server 的IP, 而不是你真正的IP. 但是最近的一个关于WebRTC (Web Real Time Communication) 安全漏洞, 使得用户真实的IP被泄漏即使用户使用V]]>
+    </summary>
+    
+      <category term="VPN" scheme="http://www.ibartman.com/tags/VPN/"/>
+    
+      <category term="networking" scheme="http://www.ibartman.com/categories/networking/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[how to make guacamole]]></title>

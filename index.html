@@ -83,6 +83,77 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/02/11/一个VPN的漏洞-可以泄漏用户真实的IP/" title="一个VPN的漏洞, 可以泄漏用户真实的IP" itemprop="url">一个VPN的漏洞, 可以泄漏用户真实的IP</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/106468424491774485690?rel=author" title="Xu" target="_blank" itemprop="author">Xu</a>
+		
+  <p class="article-time">
+    <time datetime="2015-02-11T18:59:26.000Z" itemprop="datePublished"> Published 02-11-2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>许多人用VPN来绕过区域的限制. 当连接到VPN后,通常你的IP地址会显示为exit server 的IP, 而不是你真正的IP. 但是最近的一个关于WebRTC (Web Real Time Communication) 安全漏洞, 使得用户真实的IP被泄漏即使用户使用VPN.<br>WebRTC 内建于大多数浏览器, 所有使用网页的应用也受到影响. 政府可以利用这个漏洞查看用户的真实IP地址.这个漏洞是被 <a href="https://daylightpirates.org/" target="_blank" rel="external">Daniel Roesler</a> 发现, 具体信息在 <a href="https://github.com/diafygi/webrtc-ips" target="_blank" rel="external">Git Hub</a>.</p>
+<p>查看自己的VPN是否受到影响:<br>用<a href="http://whatismyipaddress.com/" target="_blank" rel="external">what is my ip address</a> 分别查看登录VPN之前和之后自己的IP地址.</p>
+<p>简单的解决办法:</p>
+<ul>
+<li>chrome: 安装<a href="https://chrome.google.com/webstore/detail/scriptsafe/oiigbmnaadbkfbmpbfijlflahbdbdgdf?hl=en" target="_blank" rel="external">ScriptSafe</a> 插件</li>
+<li>firefox: 在Mozilla插件里禁用WebRTC, 或者打开浏览器输入 ‘about:cofig’ 找到 ‘media.peerconnection.enabled’, 设置为 false</li>
+</ul>
+<p>更好的方法:<br>在自己家的路由上设置VPN,这样可以保护所有自家的设备.<br>进入router的 admin 页面, 找到security或者conncetion的选项,不同的router可能会有区别, 找到VPN的设置,然后输入自己VPN的信息即可. 如果没有找到相关的设置, 可以去VPN那里查询支持的router型号.如果使用的是open source的firmware, 可以参考下面的 <a href="http://lifehacker.com/how-to-supercharge-your-router-with-dd-wrt-508138224" target="_blank" rel="external">教程</a></p>
+<p><a href="http://lifehacker.com/how-to-see-if-your-vpn-is-leaking-your-ip-address-and-1685180082" target="_blank" rel="external">原文</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/networking/">networking</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/VPN/">VPN</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/02/11/一个VPN的漏洞-可以泄漏用户真实的IP/#disqus_thread" class="comments-count-link">Comments</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/02/03/how-to-make-guacamole/" title="how to make guacamole" itemprop="url">how to make guacamole</a>
   </h1>
   <p class="article-author">By
@@ -670,70 +741,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2012/09/30/Linux-下设置两个主机通过router上网/" title="Linux 下设置两个主机通过router上网" itemprop="url">Linux 下设置两个主机通过router上网</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="https://plus.google.com/106468424491774485690?rel=author" title="Xu" target="_blank" itemprop="author">Xu</a>
-		
-  <p class="article-time">
-    <time datetime="2012-09-30T17:45:51.000Z" itemprop="datePublished"> Published 09-30-2012</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2012/09/30/Linux-下设置两个主机通过router上网/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/networking/">networking</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/网络配置/">网络配置</a><a href="/tags/Linux/">Linux</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2012/09/30/Linux-下设置两个主机通过router上网/#disqus_thread" class="comments-count-link">Comments</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -759,7 +766,7 @@
 		
 			<li><a href="/categories/hexo/" title="hexo">hexo<sup>3</sup></a></li>
 		
-			<li><a href="/categories/networking/" title="networking">networking<sup>2</sup></a></li>
+			<li><a href="/categories/networking/" title="networking">networking<sup>3</sup></a></li>
 		
 			<li><a href="/categories/vim/" title="vim">vim<sup>1</sup></a></li>
 		
@@ -785,6 +792,8 @@
 			<li><a href="/tags/中餐/" title="中餐">中餐<sup>1</sup></a></li>
 		
 			<li><a href="/tags/系统恢复/" title="系统恢复">系统恢复<sup>1</sup></a></li>
+		
+			<li><a href="/tags/VPN/" title="VPN">VPN<sup>1</sup></a></li>
 		
 			<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
 		
