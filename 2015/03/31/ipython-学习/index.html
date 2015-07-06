@@ -4,28 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>如何用git实现多台电脑用hexo发布文章 | Bartman&#39;s Cave</title>
+    <title>ipython 学习 | Bartman&#39;s Cave</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xu">
     
-    <meta name="description" content="折腾hexo已经快一周了, 看了各种教程, 基本实现多台电脑同时编辑博客.
-基本方法是使用两个git repo,一个管理site,一个管理src.site就是 xxx.github.io ,存储的是网站的html,用repo1 管理. src 管理的是编辑 blog 时的源文件,用repo2 管理. (src 的gitignore 文件,加入 .deploy 和 public). 这样通过同步repo2,就能实现不同电脑编辑博客文件了.
-但是昨天发现了一个问题, 虽然repo2 同步没问题,但是repo1的master branch 总是被重置.">
+    <meta name="description" content="ipython 是一个升级版的 python shell, 支持语法高亮、自动完成、代码调试、对象自省等功能">
     
     
-    <meta name="description" content="折腾hexo已经快一周了, 看了各种教程, 基本实现多台电脑同时编辑博客.
-基本方法是使用两个git repo,一个管理site,一个管理src.site就是 xxx.github.io ,存储的是网站的html,用repo1 管理. src 管理的是编辑 blog 时的源文件,用repo2 管理. (src 的gitignore 文件,加入 .deploy 和 public). 这样通过同步re">
+    <meta name="description" content="ipython 是一个升级版的 python shell, 支持语法高亮、自动完成、代码调试、对象自省等功能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何用git实现多台电脑用hexo发布文章">
-<meta property="og:url" content="http://www.ibartman.com/2015/01/27/如何实现多台电脑管理hexo-源文件/">
+<meta property="og:title" content="ipython 学习">
+<meta property="og:url" content="http://www.ibartman.com/2015/03/31/ipython-学习/">
 <meta property="og:site_name" content="Bartman's Cave">
-<meta property="og:description" content="折腾hexo已经快一周了, 看了各种教程, 基本实现多台电脑同时编辑博客.
-基本方法是使用两个git repo,一个管理site,一个管理src.site就是 xxx.github.io ,存储的是网站的html,用repo1 管理. src 管理的是编辑 blog 时的源文件,用repo2 管理. (src 的gitignore 文件,加入 .deploy 和 public). 这样通过同步re">
+<meta property="og:description" content="ipython 是一个升级版的 python shell, 支持语法高亮、自动完成、代码调试、对象自省等功能">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何用git实现多台电脑用hexo发布文章">
-<meta name="twitter:description" content="折腾hexo已经快一周了, 看了各种教程, 基本实现多台电脑同时编辑博客.
-基本方法是使用两个git repo,一个管理site,一个管理src.site就是 xxx.github.io ,存储的是网站的html,用repo1 管理. src 管理的是编辑 blog 时的源文件,用repo2 管理. (src 的gitignore 文件,加入 .deploy 和 public). 这样通过同步re">
+<meta name="twitter:title" content="ipython 学习">
+<meta name="twitter:description" content="ipython 是一个升级版的 python shell, 支持语法高亮、自动完成、代码调试、对象自省等功能">
 <link rel="publisher" href="106468424491774485690">
 
 
@@ -86,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/01/27/如何实现多台电脑管理hexo-源文件/" title="如何用git实现多台电脑用hexo发布文章" itemprop="url">如何用git实现多台电脑用hexo发布文章</a>
+      <a href="/2015/03/31/ipython-学习/" title="ipython 学习" itemprop="url">ipython 学习</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/106468424491774485690?rel=author" title="Xu" target="_blank" itemprop="author">Xu</a>
 		
   <p class="article-time">
-    <time datetime="2015-01-27T18:43:44.000Z" itemprop="datePublished"> Published 01-27-2015</time>
+    <time datetime="2015-03-31T19:49:29.000Z" itemprop="datePublished"> Published 03-31-2015</time>
     
   </p>
 </header>
@@ -106,31 +101,8 @@
 		
 		</div>
 		
-		<p>折腾hexo已经快一周了, 看了各种教程, 基本实现多台电脑同时编辑博客.</p>
-<p>基本方法是使用两个git repo,一个管理site,一个管理src.<br>site就是 xxx.github.io ,存储的是网站的html,用repo1 管理. src 管理的是编辑 blog 时的源文件,用repo2 管理. (src 的gitignore 文件,加入 .deploy 和 public). 这样通过同步repo2,就能实现不同电脑编辑博客文件了.</p>
-<p>但是昨天发现了一个问题, 虽然repo2 同步没问题,但是repo1的master branch 总是被重置.<br><a id="more"></a><br>具体的是,假设我有两台电脑 computer1, computer2. 他们各自管理自己repo1的版本<br>computer1 : ver1, ver2, ver3 …<br>computer2 : ver1`, ver2`, ver3` …<br>这样如果换电脑编辑,博客是能顺利更新,就是repo1 会被重新刷新成另一台电脑的版本. 而我想要的是保留所有的版本.</p>
-<p>原因是.deploy 这个文件夹在不同的电脑没有同步.(本身是一个submodule)</p>
-<p>我的解决办法:<br>(推荐事先配置好repo1,repo2 的ssh key)<br>repo1: xxx.github.io (site)<br>repo2: (blog src)</p>
-<ul>
-<li>假设已经在第一台电脑设置好两个repo, 当首次在另一台新的电脑上编辑博客时:</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone repo1</div><div class="line">git clone repo2</div><div class="line">mv repo1/ repo2/.deploy/</div></pre></td></tr></table></figure>
-
-<ul>
-<li><p>创建 fetch.sh 和 submit.sh,放在src的根目录</p>
-</li>
-<li><p>每次编辑之前运行 fetch.sh, (保证.deploy 和 src 获取最新版本)</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># File Name: fetch.sh</span></div><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line">git pull origin master</div><div class="line"><span class="built_in">cd</span> .deploy/</div><div class="line">git pull origin master</div></pre></td></tr></table></figure>
-
-<ul>
-<li>每次编辑之后运行 submit.sh, (运行deploy 然后push新的 src)</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># File Name: submit.sh</span></div><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line">hexo d -g</div><div class="line">git add .</div><div class="line">git commit -am <span class="string">"update blog source"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-
-<p>这样就解决了 site repo总是被重置的问题<br>PS: src 根目录的gitignore文件如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public/</div><div class="line">.deploy/</div><div class="line">.DS_Store</div><div class="line">db.json</div></pre></td></tr></table></figure>
+		<p>ipython 是一个升级版的 python shell, 支持语法高亮、自动完成、代码调试、对象自省等功能<br><a id="more"></a><br>ubuntu 下安装:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-get install ipython</div></pre></td></tr></table></figure>
 
   
 	</div>
@@ -139,13 +111,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  <a class="article-category-link" href="/categories/programming/">programming</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo/">hexo</a><a href="/tags/git/">git</a>
+  <span></span> <a href="/tags/python/">python</a>
   </div>
 
 </div>
@@ -154,7 +126,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.ibartman.com/2015/01/27/如何实现多台电脑管理hexo-源文件/" data-title="如何用git实现多台电脑用hexo发布文章 | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.ibartman.com/2015/03/31/ipython-学习/" data-title="ipython 学习 | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -167,19 +139,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/01/29/建立ssh-tunnel/" title="建立ssh tunnel">
-  <strong>上一篇：</strong><br/>
-  <span>
-  建立ssh tunnel</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/01/24/add-personal-domains/"  title="add personal domains">
+<a href="/2015/02/11/一个VPN的漏洞-可以泄漏用户真实的IP/"  title="一个VPN的漏洞, 可以泄漏用户真实的IP">
  <strong>下一篇：</strong><br/> 
- <span>add personal domains
+ <span>一个VPN的漏洞, 可以泄漏用户真实的IP
 </span>
 </a>
 </div>
