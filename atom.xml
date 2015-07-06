@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ibartman.com/"/>
-  <updated>2015-07-06T21:08:00.636Z</updated>
+  <updated>2015-07-06T22:58:02.004Z</updated>
   <id>http://www.ibartman.com/</id>
   
   <author>
@@ -15,11 +15,91 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[ubuntu安装pptpd来架设VPN服务器]]></title>
+    <link href="http://www.ibartman.com/2015/07/06/ubuntu%E5%AE%89%E8%A3%85pptpd%E6%9D%A5%E6%9E%B6%E8%AE%BEVPN%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://www.ibartman.com/2015/07/06/ubuntu安装pptpd来架设VPN服务器/</id>
+    <published>2015-07-06T22:17:03.000Z</published>
+    <updated>2015-07-06T22:55:49.000Z</updated>
+    <content type="html"><![CDATA[<p>转载文章，原链接：<br><a href="http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html" target="_blank" rel="external">http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html</a></p>
+<p>以下是原文：</p>
+<a id="more"></a>
+
+<p>Linux下的VPN服务器软件主要是pptpd和openvpn,pptpd架设好后在windows下建个VPN连接就可以fan墙了，比较简单，这里说下ubuntu下安装配置pptpd。首先安装pptpd这个VPN服务器软件，ssh连接登录后用下面这个命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-get install pptpd</div></pre></td></tr></table></figure>
+
+<p>安装好了在webmin的网络这一栏里就可以看到pptp vpn server这项了。<br>安装完了需要对相关文件进行配置修改，用webmin上的文件管理或ssh端用vi命令修改都行。</p>
+<h1 id="第一步：">第一步：</h1>
+<ul>
+<li>方法一：ssh连接修改/etc/pptpd.conf这个文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/pptpd.conf</div></pre></td></tr></table></figure>
+
+<p>找到#localip 192.168.0.1和#remoteip 192.168.0.234-238,192.168.0.245这两行，把前面的#号去掉，然后保存就行了。<br>这里，localip 是 VPN 链接成功后服务器的 ip 地址， remoteip 则是客户端的可分配 ip 地址范围。下面是我的配置：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor"># (Recommended)</span></div><div class="line">localip <span class="number">192.168</span><span class="number">.0</span><span class="number">.1</span></div><div class="line">remoteip <span class="number">192.168</span><span class="number">.0</span><span class="number">.234</span>-<span class="number">238</span>,<span class="number">192.168</span><span class="number">.0</span><span class="number">.245</span></div><div class="line"></div><div class="line"><span class="preprocessor"># or</span></div><div class="line"><span class="preprocessor">#localip 192.168.0.234-238,192.168.0.245</span></div><div class="line"><span class="preprocessor">#localip 192.168.0.234-238,192.168.0.245</span></div><div class="line"><span class="preprocessor">#remoteip 192.168.1.234-238,192.168.1.245</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>方法二：用webmin的pptpd服务器项修改，点击webmin网络&gt;PPTP VPN Server&gt;PPTP Server Options,加上localip和romoteip就行了，如下图<br><img src="https://lh3.googleusercontent.com/YI4iUNa7ubR1fhjiJFVnLjp2xuAs-1i_Ch7BN6vvnw=w1031-h394-no" alt=""></li>
+</ul>
+<h1 id="第二步：">第二步：</h1>
+<p>然后再要编辑/etc/ppp/pptpd-options这个文件,为vpn指定DNS服务器, 你可以找到你服务器用的DNS服务器地址，或者直接使用Google Public DNS：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/ppp/pptpd-options</div></pre></td></tr></table></figure>
+
+<p>找到ms-dns这项，去掉前面的#号，修改成google提供的DNS，很好记哈</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ms-dns 8.8.8.8</div><div class="line">ms-dns 8.8.4.4</div></pre></td></tr></table></figure>
+
+<p>修改好后保存。</p>
+<h1 id="第三步：">第三步：</h1>
+<p>接下来建立vpn账号和密码了，可以直接在webmin的pptp vpn server选项里修改，修改文件也行。</p>
+<ul>
+<li><p>方法一：点击webmin里的网络&gt;PPTP VPN Server&gt;PPP Accounts&gt;Create new PPP account，就可以创建新的账号和密码了。<br><img src="https://lh3.googleusercontent.com/EylTtC66hEJ1xg27Tq5g0QL_Mw5yzJ_07Jj7PZaiKw=w731-h301-no" alt=""><br>webmin创建VPN账号</p>
+</li>
+<li><p>方法二：修改/etc/ppp/chap-secrets文件，按一行四列添加账号、服务器名、密码和IP限制。即第一列是用户名，第二列是服务器名（默认写pptpd 即可，注意与 pptpd-options 文件保持一致），第三列是密码，第四列是 IP 限制（不做限制用 * ）。如创建一个名为test，密码为123，不限制登录IP的VPN账号：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test pptpd <span class="number">123</span> *</div></pre></td></tr></table></figure>
+
+<p>修改好后保存行了。<br>最后重启pptpd服务，就可以生效了。<br>到了这一步，正常的话在XP里建立个VPN连接应该可以连接上了，但还不能访问外网，还需要另外的配置。但是如果连接不上VPN服务器的话，那就是碰上传说中的人品问题了，我就碰到过，明明所有步骤都做了，但是就是不能连接上，然后就胡乱折腾，看运气什么时候能折腾好了。</p>
+<h1 id="第四步：">第四步：</h1>
+<p>修改/etc/sysctl.conf 这个文件，把ipv4 forward开启，方法是找到/etc/sysctl.conf这个文件里的这一行#net.ipv4.ip_forward=1后，去掉net.ipv4.ip_forward=1前面的#号，使他生效，然后保存，运行命令sysctl –p.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@s:~<span class="comment"># sysctl -p</span></div></pre></td></tr></table></figure>
+
+<p>运行命令后会显示这样的一行，那就表示修改生效了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">net.ipv4.ip_forward = <span class="number">1</span></div></pre></td></tr></table></figure>
+
+<p>这样，vpn 服务器就算是搭建成功了。<br>重启pptpd后如果还不能访问外网，那么就要再来一步。</p>
+<h1 id="第五步：">第五步：</h1>
+<p>使用iptables建立一个NAT, 用下面的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install iptables （如果已经安装iptables，这一步就不用了）</div><div class="line">iptables -t nat -A POSTROUTING <span class="operator">-s</span> <span class="number">192.168</span>.<span class="number">0.0</span>/<span class="number">24</span> -o eth0 -j MASQUERADE</div></pre></td></tr></table></figure>
+
+<p>上面的24表示子网掩码，代表24个1.<br>OK，到了这一步就应该可以用VPN了哈。如果不能，我也不知是哪里出问题了。<br>如果要防止重启服务器后iptables丢失，先运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables-save &gt; /etc/iptables-rules</div></pre></td></tr></table></figure>
+
+<p>然后修改/etc/network/interfaces 文件，在eth0 下面加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pre-up iptables-restore &lt; /etc/iptables-rules</div></pre></td></tr></table></figure>
+
+<p>这样，服务器重启后，就能自动挂载规则了。<br>好了，有了VPN，墙再高也不怕了哈。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>转载文章，原链接：<br><a href="http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html" target="_blank" rel="external">http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html</a></p>
+<p>以下是原文：</p>
+]]>
+    
+    </summary>
+    
+      <category term="VPN" scheme="http://www.ibartman.com/tags/VPN/"/>
+    
+      <category term="翻墙" scheme="http://www.ibartman.com/tags/%E7%BF%BB%E5%A2%99/"/>
+    
+      <category term="networking" scheme="http://www.ibartman.com/categories/networking/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[一个VPN的漏洞, 可以泄漏用户真实的IP]]></title>
-    <link href="http://www.ibartman.com/2015/02/11/%E4%B8%80%E4%B8%AAVPN%E7%9A%84%E6%BC%8F%E6%B4%9E-%E5%8F%AF%E4%BB%A5%E6%B3%84%E6%BC%8F%E7%94%A8%E6%88%B7%E7%9C%9F%E5%AE%9E%E7%9A%84IP/"/>
-    <id>http://www.ibartman.com/2015/02/11/一个VPN的漏洞-可以泄漏用户真实的IP/</id>
-    <published>2015-02-11T18:59:26.000Z</published>
-    <updated>2015-02-11T21:35:48.000Z</updated>
+    <link href="http://www.ibartman.com/2015/02/10/%E4%B8%80%E4%B8%AAVPN%E7%9A%84%E6%BC%8F%E6%B4%9E-%E5%8F%AF%E4%BB%A5%E6%B3%84%E6%BC%8F%E7%94%A8%E6%88%B7%E7%9C%9F%E5%AE%9E%E7%9A%84IP/"/>
+    <id>http://www.ibartman.com/2015/02/10/一个VPN的漏洞-可以泄漏用户真实的IP/</id>
+    <published>2015-02-11T03:59:26.000Z</published>
+    <updated>2015-07-06T22:11:29.000Z</updated>
     <content type="html"><![CDATA[<p>许多人用VPN来绕过区域的限制. 当连接到VPN后,通常你的IP地址会显示为exit server 的IP, 而不是你真正的IP. 但是最近的一个关于WebRTC (Web Real Time Communication) 安全漏洞, 使得用户真实的IP被泄漏即使用户使用VPN.<br>WebRTC 内建于大多数浏览器, 所有使用网页的应用也受到影响. 政府可以利用这个漏洞查看用户的真实IP地址.这个漏洞是被 <a href="https://daylightpirates.org/" target="_blank" rel="external">Daniel Roesler</a> 发现, 具体信息在 <a href="https://github.com/diafygi/webrtc-ips" target="_blank" rel="external">Git Hub</a>.</p>
 <p>查看自己的VPN是否受到影响:<br>用<a href="http://whatismyipaddress.com/" target="_blank" rel="external">what is my ip address</a> 分别查看登录VPN之前和之后自己的IP地址.</p>
 <p>简单的解决办法:</p>
@@ -42,10 +122,10 @@
   
   <entry>
     <title><![CDATA[how to make guacamole]]></title>
-    <link href="http://www.ibartman.com/2015/02/03/how-to-make-guacamole/"/>
-    <id>http://www.ibartman.com/2015/02/03/how-to-make-guacamole/</id>
-    <published>2015-02-03T17:56:08.000Z</published>
-    <updated>2015-02-03T18:10:34.000Z</updated>
+    <link href="http://www.ibartman.com/2015/02/02/how-to-make-guacamole/"/>
+    <id>http://www.ibartman.com/2015/02/02/how-to-make-guacamole/</id>
+    <published>2015-02-03T02:56:08.000Z</published>
+    <updated>2015-07-06T22:11:29.000Z</updated>
     <content type="html"><![CDATA[<p>Guacamole是一种以牛油果为主料的酱,一般搭配墨西哥玉米片来吃,味道非常清新爽口,制作也很简单.</p>
 <p><img src="https://lh4.googleusercontent.com/-Fqxz-qofA68/VNELU9bzR5I/AAAAAAAAAEg/DxcqGiFdD4c/w968-h505-no/Screenshot%2Bfrom%2B2015-02-03%2B10%3A54%3A05.png" alt=""><br><a id="more"></a><br><img src="https://lh3.googleusercontent.com/-Y9KVZLpZe_Y/VNELEAZcyYI/AAAAAAAAAEU/okYhE_-hVlk/w1354-h863-no/My-Favorite-Guacamole-Recipe-Key-Ingredients.jpg" alt=""></p>
 <ul>
@@ -72,8 +152,8 @@
     <title><![CDATA[新疆大盘鸡的做法]]></title>
     <link href="http://www.ibartman.com/2015/02/02/%E5%A4%A7%E7%9B%98%E9%B8%A1%E7%9A%84%E5%81%9A%E6%B3%95/"/>
     <id>http://www.ibartman.com/2015/02/02/大盘鸡的做法/</id>
-    <published>2015-02-03T05:48:51.000Z</published>
-    <updated>2015-02-03T06:08:54.000Z</updated>
+    <published>2015-02-02T14:48:51.000Z</published>
+    <updated>2015-07-06T22:11:29.000Z</updated>
     <content type="html"><![CDATA[<p><img src="https://lh3.googleusercontent.com/-k9zE3kvnpVo/VMcLMqEKPHI/AAAAAAAAAD4/yg_NQOYGEZg/w600-h800-no/1.jpg" alt=""><br>（5-6人份）大盘鸡—-主料：鸡琵琶腿7-8只，斩件。土豆两个、紫色洋葱一个、圆青椒两个。大葱两根，切段。姜，切片。<br><a id="more"></a><br><img src="https://lh5.googleusercontent.com/-GUGfOP2WVuY/VMcLH1x2BxI/AAAAAAAAACg/woUAYvYuwdo/w720-h480-no/2.jpg" alt=""><br>辅料：八角（大料）两枚、花椒适量、香叶两片、红干辣椒适量。</p>
 <p><img src="https://lh6.googleusercontent.com/-aPn2_gWflsE/VMcLJHcqQKI/AAAAAAAAADw/-Q8vGCXw-PA/w720-h480-no/3.jpg" alt=""><br>必备调料：郫县豆瓣。</p>
 <p><img src="https://lh6.googleusercontent.com/-8PMELH4Wk_Q/VMcLJ3LdbXI/AAAAAAAAADs/YUzuaooqR6U/w720-h480-no/4.jpg" alt=""><br>必备调料：啤酒。</p>
@@ -111,8 +191,8 @@
     <title><![CDATA[建立ssh tunnel]]></title>
     <link href="http://www.ibartman.com/2015/01/29/%E5%BB%BA%E7%AB%8Bssh-tunnel/"/>
     <id>http://www.ibartman.com/2015/01/29/建立ssh-tunnel/</id>
-    <published>2015-01-30T03:31:50.000Z</published>
-    <updated>2015-01-30T04:55:31.000Z</updated>
+    <published>2015-01-29T12:31:50.000Z</published>
+    <updated>2015-07-06T22:11:29.000Z</updated>
     <content type="html"><![CDATA[<p>觉得解释很好的一篇文章:<br><a href="https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/" target="_blank" rel="external">https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/</a></p>
 <p>ssh tunnel 可以被用来把未加密的traffic转变成加密的, 比如出差用宾馆的wifi就很不安全, 使用ssh tunnel会把你的traffic加密. 它还有一个用途是绕过防火墙.在这一点上,它的作用相当于一个简易的VPN.<br><a id="more"></a><br>ssh tunnel 是基于 port forwarding 的,这里用的 port forwarding 是指把数据包本地的地址和/或端口转换到另一个地址. 说白了,比如自己的电脑A想浏览facebook,但是facebook被防火墙屏蔽掉了.这时A如果可以连接到电脑B,而B处在防火墙之外.A 可以把对facebook的请求通过port forwording 转给B, B和facebook的服务器通信,然后再转发给A. 这样表面看来是A和B建立了一个加密的tunnel,实际上这个tunnel是用来转发A对facebook的请求.<br>基本命令是:(假设facebook主机的端口是80)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -L <span class="number">9001</span>:facebook.com:<span class="number">80</span> &lt;username@remotehostB&gt;</div></pre></td></tr></table></figure>
@@ -153,10 +233,10 @@
   
   <entry>
     <title><![CDATA[如何用git实现多台电脑用hexo发布文章]]></title>
-    <link href="http://www.ibartman.com/2015/01/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86hexo-%E6%BA%90%E6%96%87%E4%BB%B6/"/>
-    <id>http://www.ibartman.com/2015/01/27/如何实现多台电脑管理hexo-源文件/</id>
-    <published>2015-01-27T18:43:44.000Z</published>
-    <updated>2015-01-27T21:48:29.000Z</updated>
+    <link href="http://www.ibartman.com/2015/01/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E7%AE%A1%E7%90%86hexo-%E6%BA%90%E6%96%87%E4%BB%B6/"/>
+    <id>http://www.ibartman.com/2015/01/26/如何实现多台电脑管理hexo-源文件/</id>
+    <published>2015-01-27T03:43:44.000Z</published>
+    <updated>2015-07-06T22:11:29.000Z</updated>
     <content type="html"><![CDATA[<p>折腾hexo已经快一周了, 看了各种教程, 基本实现多台电脑同时编辑博客.</p>
 <p>基本方法是使用两个git repo,一个管理site,一个管理src.<br>site就是 xxx.github.io ,存储的是网站的html,用repo1 管理. src 管理的是编辑 blog 时的源文件,用repo2 管理. (src 的gitignore 文件,加入 .deploy 和 public). 这样通过同步repo2,就能实现不同电脑编辑博客文件了.</p>
 <p>但是昨天发现了一个问题, 虽然repo2 同步没问题,但是repo1的master branch 总是被重置.<br><a id="more"></a><br>具体的是,假设我有两台电脑 computer1, computer2. 他们各自管理自己repo1的版本<br>computer1 : ver1, ver2, ver3 …<br>computer2 : ver1`, ver2`, ver3` …<br>这样如果换电脑编辑,博客是能顺利更新,就是repo1 会被重新刷新成另一台电脑的版本. 而我想要的是保留所有的版本.</p>
@@ -203,8 +283,8 @@
     <title><![CDATA[add personal domains]]></title>
     <link href="http://www.ibartman.com/2015/01/24/add-personal-domains/"/>
     <id>http://www.ibartman.com/2015/01/24/add-personal-domains/</id>
-    <published>2015-01-25T03:14:23.000Z</published>
-    <updated>2015-01-27T17:45:34.000Z</updated>
+    <published>2015-01-24T12:14:23.000Z</published>
+    <updated>2015-01-27T08:34:39.000Z</updated>
     <content type="html"><![CDATA[<p>source:<br><a href="http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html" target="_blank" rel="external">http://jingyan.baidu.com/article/36d6ed1f5356f31bcf488314.html</a></p>
 <ol>
 <li>绑定自己的域名很简单，两步走。但是在绑定之前，你需要已经生成了你的github主页（如：你的用户名.github.io）。</li>
@@ -229,8 +309,8 @@
     <title><![CDATA[my_first_post]]></title>
     <link href="http://www.ibartman.com/2015/01/23/my_first_post/"/>
     <id>http://www.ibartman.com/2015/01/23/my_first_post/</id>
-    <published>2015-01-23T22:43:05.000Z</published>
-    <updated>2015-01-27T17:45:34.000Z</updated>
+    <published>2015-01-23T07:43:05.000Z</published>
+    <updated>2015-01-25T04:50:10.000Z</updated>
     <content type="html"><![CDATA[<p>之前一直想找个好的地方存放自己的笔记,在国外访问新浪博客的速度真是蛋疼.<br>昨天尝试了word press,很不错.但是最终还是决定使用github pages.<br>我的系统环境是Ubuntu 14.04<br>以下是一些有用的教程<br>基础:<br><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/</a><br>Ubuntu下的:<br><a href="http://blog.maxwi.com/2014/02/22/first-post/" target="_blank" rel="external">http://blog.maxwi.com/2014/02/22/first-post/</a><br>最后,还要特别说明以下,我使用的hexo 2.8.3,出现了一个问题,安装主题之后不能正常显示,搜索很久才找到原因:(刚刚安装这个软件的童鞋可能也会遇到这个问题)<br>解决办法:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-renderer-stylus@<span class="number">0.1</span> --save</div></pre></td></tr></table></figure>
 
@@ -249,10 +329,10 @@
   
   <entry>
     <title><![CDATA[解决chrome 在ubuntu 14.04 freeze的问题]]></title>
-    <link href="http://www.ibartman.com/2014/10/08/%E8%A7%A3%E5%86%B3chrome%20%E5%9C%A8ubuntu%2014.04%20freeze%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.ibartman.com/2014/10/08/解决chrome 在ubuntu 14.04 freeze的问题/</id>
-    <published>2014-10-08T13:07:00.000Z</published>
-    <updated>2015-01-30T04:59:05.000Z</updated>
+    <link href="http://www.ibartman.com/2014/10/07/%E8%A7%A3%E5%86%B3chrome%20%E5%9C%A8ubuntu%2014.04%20freeze%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.ibartman.com/2014/10/07/解决chrome 在ubuntu 14.04 freeze的问题/</id>
+    <published>2014-10-07T23:07:00.000Z</published>
+    <updated>2015-07-06T22:11:29.000Z</updated>
     <content type="html"><![CDATA[<p>以下转载一篇文章 , 禁用 加速解决freeze的问题<br><a id="more"></a></p>
 <blockquote>
 <p>Many of you probably already know about this but for the rest, here’s a quick tip that you might find useful. </p>
@@ -280,10 +360,10 @@
   
   <entry>
     <title><![CDATA[vim 配色]]></title>
-    <link href="http://www.ibartman.com/2014/04/17/vim%20%E9%85%8D%E8%89%B2/"/>
-    <id>http://www.ibartman.com/2014/04/17/vim 配色/</id>
-    <published>2014-04-17T12:53:00.000Z</published>
-    <updated>2015-01-27T17:45:34.000Z</updated>
+    <link href="http://www.ibartman.com/2014/04/16/vim%20%E9%85%8D%E8%89%B2/"/>
+    <id>http://www.ibartman.com/2014/04/16/vim 配色/</id>
+    <published>2014-04-16T22:53:00.000Z</published>
+    <updated>2015-01-25T06:51:09.000Z</updated>
     <content type="html"><![CDATA[<p>最近发现vim的配色不能被 xterm，tmux很好的支持，许多网上的配置也不work，试了很多配置，发现tmux中的配置不是必须的，只需在bashrc 和vimrc中配置即可</p>
 <p><a id="more"></a><br>.bashrc: </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> TERM=<span class="string">"xterm-256color"</span></div></pre></td></tr></table></figure>
@@ -310,10 +390,10 @@
   
   <entry>
     <title><![CDATA[HP V3704 刷BIOS 黑屏，解决办法]]></title>
-    <link href="http://www.ibartman.com/2013/06/06/HP-V3704-%E5%88%B7BIOS-%E9%BB%91%E5%B1%8F%EF%BC%8C%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
-    <id>http://www.ibartman.com/2013/06/06/HP-V3704-刷BIOS-黑屏，解决办法/</id>
-    <published>2013-06-06T10:56:40.000Z</published>
-    <updated>2015-01-30T04:59:31.000Z</updated>
+    <link href="http://www.ibartman.com/2013/06/05/HP-V3704-%E5%88%B7BIOS-%E9%BB%91%E5%B1%8F%EF%BC%8C%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://www.ibartman.com/2013/06/05/HP-V3704-刷BIOS-黑屏，解决办法/</id>
+    <published>2013-06-05T20:56:40.000Z</published>
+    <updated>2015-07-06T22:11:29.000Z</updated>
     <content type="html"><![CDATA[<p>首先，转载一篇相关博文<br><a href="http://diybbs.zol.com.cn/1/34121_2331.html" target="_blank" rel="external">http://diybbs.zol.com.cn/1/34121_2331.html</a><br>目前刷BIOS激活WIN7很火,相信不少V3000本友遇到刷完BIOS黑屏(黑屏是指刷BIOS失败后开机后指示灯都亮就屏幕不亮,不是指因为HP主板问题黑屏)的现象,一定非常着急吧!<br>(ps:如果你对我这个教程持怀疑态度,那就请你不要往下看咯!未必我写这么久!写来骗大家?!!!)</p>
 <p>教大家一个强刷BIOS恢复黑屏的办法:(本人在V3000系列成功,其他机型请慎重!!)</p>
 <p><a id="more"></a></p>
@@ -351,10 +431,10 @@
   
   <entry>
     <title><![CDATA[Linux 下设置两个主机通过router上网]]></title>
-    <link href="http://www.ibartman.com/2012/09/30/Linux-%E4%B8%8B%E8%AE%BE%E7%BD%AE%E4%B8%A4%E4%B8%AA%E4%B8%BB%E6%9C%BA%E9%80%9A%E8%BF%87router%E4%B8%8A%E7%BD%91/"/>
-    <id>http://www.ibartman.com/2012/09/30/Linux-下设置两个主机通过router上网/</id>
-    <published>2012-09-30T17:45:51.000Z</published>
-    <updated>2015-01-30T04:59:15.000Z</updated>
+    <link href="http://www.ibartman.com/2012/09/29/Linux-%E4%B8%8B%E8%AE%BE%E7%BD%AE%E4%B8%A4%E4%B8%AA%E4%B8%BB%E6%9C%BA%E9%80%9A%E8%BF%87router%E4%B8%8A%E7%BD%91/"/>
+    <id>http://www.ibartman.com/2012/09/29/Linux-下设置两个主机通过router上网/</id>
+    <published>2012-09-30T03:45:51.000Z</published>
+    <updated>2015-07-06T22:11:29.000Z</updated>
     <content type="html"><![CDATA[<p>搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。<br><a id="more"></a><br><code>sudo vi /etc/network/interfaces</code><br>配置如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">endpoint <span class="number">1</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">1.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">gw <span class="number">10.1</span>.<span class="number">1.2</span>              //gateway是router eth1的ip </div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain </div><div class="line"> </div><div class="line">endpoint <span class="number">2</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">2.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">gw <span class="number">10.1</span>.<span class="number">2.2</span>             //gateway是router eth2的ip</div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain</div></pre></td></tr></table></figure>
 
@@ -391,10 +471,10 @@
   
   <entry>
     <title><![CDATA[用CD 安装openBSD （Alpha, Mac G4, Sparc64)]]></title>
-    <link href="http://www.ibartman.com/2012/03/16/%E7%94%A8CD-%E5%AE%89%E8%A3%85openBSD-%EF%BC%88Alpha-Mac-G4-Sparc64/"/>
-    <id>http://www.ibartman.com/2012/03/16/用CD-安装openBSD-（Alpha-Mac-G4-Sparc64/</id>
-    <published>2012-03-16T09:49:26.000Z</published>
-    <updated>2015-01-27T17:45:34.000Z</updated>
+    <link href="http://www.ibartman.com/2012/03/15/%E7%94%A8CD-%E5%AE%89%E8%A3%85openBSD-%EF%BC%88Alpha-Mac-G4-Sparc64/"/>
+    <id>http://www.ibartman.com/2012/03/15/用CD-安装openBSD-（Alpha-Mac-G4-Sparc64/</id>
+    <published>2012-03-15T19:49:26.000Z</published>
+    <updated>2015-01-25T06:52:19.000Z</updated>
     <content type="html"><![CDATA[<p>今天记录的是之前在这三个平台上安装openBSD的方法，没安装过的朋友，首先阅读中文版的图解安装指南。<br><a href="http://www.bsdlover.cn/html/8/n-8.html" target="_blank" rel="external">http://www.bsdlover.cn/html/8/n-8.html</a><br><a id="more"></a><br>二. 三个平台的特殊性<br>首先需要在ftp://mirror.esc7.net/pub/OpenBSD/5.0/ 选择对应平台的镜像刻录成盘，镜像名字一般为install50.iso ，大小约200M。</p>
 <ol>
 <li><p>对于Alpha，开机按F2,或者ctrl+B，进入shell。然后输入 show device，查询设备名，一般第一项是硬盘，第二项是光盘，大概是DKA0 或者是 DKBO。这时输入 boot xxx（你查询到的名称），从光盘启动。<br>安装完成之后会提示reboot，这之后需要手动切换启动项为硬盘，不然会无限从光盘启动提示安装。<br>（英文安装指南：ftp://mirror.esc7.net/pub/OpenBSD/5.0/alpha/INSTALL.alpha）</p>
@@ -418,10 +498,10 @@
   
   <entry>
     <title><![CDATA[Install OpenBSD on Octane (sgi)]]></title>
-    <link href="http://www.ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/"/>
-    <id>http://www.ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/</id>
-    <published>2012-03-07T18:20:52.000Z</published>
-    <updated>2015-01-27T17:45:34.000Z</updated>
+    <link href="http://www.ibartman.com/2012/03/06/Install-OpenBSD-on-Octane-sgi/"/>
+    <id>http://www.ibartman.com/2012/03/06/Install-OpenBSD-on-Octane-sgi/</id>
+    <published>2012-03-07T03:20:52.000Z</published>
+    <updated>2015-01-25T06:54:19.000Z</updated>
     <content type="html"><![CDATA[<p>这一篇虽然讲的是具体在Octane上装OpenBSD, 比较细节，但是中间涉及到boot from DHCPD server，建立tftpd server 还是很有用的。<br>首先，由于Octane 没有光驱，usb，只能boot from DHCPD or BOOTP server . 建立 DHCPD server的过程如下：</p>
 <p><a href="http://www.linuxtopia.org/online_books/system_administration_books/ubuntu_starter_guide/ch07s04.html" target="_blank" rel="external">http://www.linuxtopia.org/online_books/system_administration_books/ubuntu_starter_guide/ch07s04.html</a></p>
 <ul>
@@ -503,10 +583,10 @@
   
   <entry>
     <title><![CDATA[关于多次创建联想恢复介质]]></title>
-    <link href="http://www.ibartman.com/2012/03/03/%E5%85%B3%E4%BA%8E%E5%A4%9A%E6%AC%A1%E5%88%9B%E5%BB%BA%E8%81%94%E6%83%B3%E6%81%A2%E5%A4%8D%E4%BB%8B%E8%B4%A8/"/>
-    <id>http://www.ibartman.com/2012/03/03/关于多次创建联想恢复介质/</id>
-    <published>2012-03-03T19:55:18.000Z</published>
-    <updated>2015-01-30T04:59:54.000Z</updated>
+    <link href="http://www.ibartman.com/2012/03/02/%E5%85%B3%E4%BA%8E%E5%A4%9A%E6%AC%A1%E5%88%9B%E5%BB%BA%E8%81%94%E6%83%B3%E6%81%A2%E5%A4%8D%E4%BB%8B%E8%B4%A8/"/>
+    <id>http://www.ibartman.com/2012/03/02/关于多次创建联想恢复介质/</id>
+    <published>2012-03-03T04:55:18.000Z</published>
+    <updated>2015-07-06T22:11:29.000Z</updated>
     <content type="html"><![CDATA[<p>最近系统这块接触的比较多，系统的东西又杂，经常是做了就忘。而且自己不懂的时候，经常是中英文google交替搜索关键词，因为中文的网站好处是看的比较快，英文的网站信息比较全，如果把每次做的写成log，这样后人会少走一些弯路，自己将来也方便查阅。</p>
 <p> 首先声明，这篇文章仅是为了学习方便首次创建恢复介质失败，又想学习技巧的用户。<br> <a id="more"></a></p>
 <p>  我的是联想 thinkpad-x220，买完之后直接把原厂的系统格掉了，DIY之后发现蓝键失效。于是用朋友的恢复盘恢复回来，但是创建恢复盘提示不能第二次创建。于是google了一下<br>  原帖地址 <a href="http://thinkbbs.zol.com.cn/39/32108_388558.html" target="_blank" rel="external">http://thinkbbs.zol.com.cn/39/32108_388558.html</a></p>

@@ -1,0 +1,558 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>ubuntu安装pptpd来架设VPN服务器 | Bartman&#39;s Cave</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Shane">
+    
+    <meta name="description" content="转载文章，原链接：http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html
+以下是原文：">
+    
+    
+    <meta name="description" content="转载文章，原链接：http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html
+以下是原文：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu安装pptpd来架设VPN服务器">
+<meta property="og:url" content="http://www.ibartman.com/2015/07/06/ubuntu安装pptpd来架设VPN服务器/">
+<meta property="og:site_name" content="Bartman's Cave">
+<meta property="og:description" content="转载文章，原链接：http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html
+以下是原文：">
+<meta property="og:image" content="https://lh3.googleusercontent.com/YI4iUNa7ubR1fhjiJFVnLjp2xuAs-1i_Ch7BN6vvnw=w1031-h394-no">
+<meta property="og:image" content="https://lh3.googleusercontent.com/EylTtC66hEJ1xg27Tq5g0QL_Mw5yzJ_07Jj7PZaiKw=w731-h301-no">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu安装pptpd来架设VPN服务器">
+<meta name="twitter:description" content="转载文章，原链接：http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html
+以下是原文：">
+<link rel="publisher" href="106468424491774485690">
+
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bartman&#39;s Cave" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/batman.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/batman_apple.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/batman_apple.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/dk.png" alt="Bartman&#39;s Cave" title="Bartman&#39;s Cave"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bartman&#39;s Cave">Bartman&#39;s Cave</a></h1>
+				<h2 class="blog-motto">my cyber blog</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/06/ubuntu安装pptpd来架设VPN服务器/" title="ubuntu安装pptpd来架设VPN服务器" itemprop="url">ubuntu安装pptpd来架设VPN服务器</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/106468424491774485690?rel=author" title="Shane" target="_blank" itemprop="author">Shane</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-06T22:17:03.000Z" itemprop="datePublished"> Published 07-06-2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一步："><span class="toc-number">1.</span> <span class="toc-text">第一步：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二步："><span class="toc-number">2.</span> <span class="toc-text">第二步：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三步："><span class="toc-number">3.</span> <span class="toc-text">第三步：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四步："><span class="toc-number">4.</span> <span class="toc-text">第四步：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五步："><span class="toc-number">5.</span> <span class="toc-text">第五步：</span></a></li></ol>
+		
+		</div>
+		
+		<p>转载文章，原链接：<br><a href="http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html" target="_blank" rel="external">http://www.cnblogs.com/youlechang123/archive/2011/09/29/2195013.html</a></p>
+<p>以下是原文：</p>
+<a id="more"></a>
+
+<p>Linux下的VPN服务器软件主要是pptpd和openvpn,pptpd架设好后在windows下建个VPN连接就可以fan墙了，比较简单，这里说下ubuntu下安装配置pptpd。首先安装pptpd这个VPN服务器软件，ssh连接登录后用下面这个命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-get install pptpd</div></pre></td></tr></table></figure>
+
+<p>安装好了在webmin的网络这一栏里就可以看到pptp vpn server这项了。<br>安装完了需要对相关文件进行配置修改，用webmin上的文件管理或ssh端用vi命令修改都行。</p>
+<h1 id="第一步：">第一步：</h1>
+<ul>
+<li>方法一：ssh连接修改/etc/pptpd.conf这个文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/pptpd.conf</div></pre></td></tr></table></figure>
+
+<p>找到#localip 192.168.0.1和#remoteip 192.168.0.234-238,192.168.0.245这两行，把前面的#号去掉，然后保存就行了。<br>这里，localip 是 VPN 链接成功后服务器的 ip 地址， remoteip 则是客户端的可分配 ip 地址范围。下面是我的配置：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor"># (Recommended)</span></div><div class="line">localip <span class="number">192.168</span><span class="number">.0</span><span class="number">.1</span></div><div class="line">remoteip <span class="number">192.168</span><span class="number">.0</span><span class="number">.234</span>-<span class="number">238</span>,<span class="number">192.168</span><span class="number">.0</span><span class="number">.245</span></div><div class="line"></div><div class="line"><span class="preprocessor"># or</span></div><div class="line"><span class="preprocessor">#localip 192.168.0.234-238,192.168.0.245</span></div><div class="line"><span class="preprocessor">#localip 192.168.0.234-238,192.168.0.245</span></div><div class="line"><span class="preprocessor">#remoteip 192.168.1.234-238,192.168.1.245</span></div></pre></td></tr></table></figure>
+
+<ul>
+<li>方法二：用webmin的pptpd服务器项修改，点击webmin网络&gt;PPTP VPN Server&gt;PPTP Server Options,加上localip和romoteip就行了，如下图<br><img src="https://lh3.googleusercontent.com/YI4iUNa7ubR1fhjiJFVnLjp2xuAs-1i_Ch7BN6vvnw=w1031-h394-no" alt=""></li>
+</ul>
+<h1 id="第二步：">第二步：</h1>
+<p>然后再要编辑/etc/ppp/pptpd-options这个文件,为vpn指定DNS服务器, 你可以找到你服务器用的DNS服务器地址，或者直接使用Google Public DNS：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/ppp/pptpd-options</div></pre></td></tr></table></figure>
+
+<p>找到ms-dns这项，去掉前面的#号，修改成google提供的DNS，很好记哈</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ms-dns 8.8.8.8</div><div class="line">ms-dns 8.8.4.4</div></pre></td></tr></table></figure>
+
+<p>修改好后保存。</p>
+<h1 id="第三步：">第三步：</h1>
+<p>接下来建立vpn账号和密码了，可以直接在webmin的pptp vpn server选项里修改，修改文件也行。</p>
+<ul>
+<li><p>方法一：点击webmin里的网络&gt;PPTP VPN Server&gt;PPP Accounts&gt;Create new PPP account，就可以创建新的账号和密码了。<br><img src="https://lh3.googleusercontent.com/EylTtC66hEJ1xg27Tq5g0QL_Mw5yzJ_07Jj7PZaiKw=w731-h301-no" alt=""><br>webmin创建VPN账号</p>
+</li>
+<li><p>方法二：修改/etc/ppp/chap-secrets文件，按一行四列添加账号、服务器名、密码和IP限制。即第一列是用户名，第二列是服务器名（默认写pptpd 即可，注意与 pptpd-options 文件保持一致），第三列是密码，第四列是 IP 限制（不做限制用 * ）。如创建一个名为test，密码为123，不限制登录IP的VPN账号：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test pptpd <span class="number">123</span> *</div></pre></td></tr></table></figure>
+
+<p>修改好后保存行了。<br>最后重启pptpd服务，就可以生效了。<br>到了这一步，正常的话在XP里建立个VPN连接应该可以连接上了，但还不能访问外网，还需要另外的配置。但是如果连接不上VPN服务器的话，那就是碰上传说中的人品问题了，我就碰到过，明明所有步骤都做了，但是就是不能连接上，然后就胡乱折腾，看运气什么时候能折腾好了。</p>
+<h1 id="第四步：">第四步：</h1>
+<p>修改/etc/sysctl.conf 这个文件，把ipv4 forward开启，方法是找到/etc/sysctl.conf这个文件里的这一行#net.ipv4.ip_forward=1后，去掉net.ipv4.ip_forward=1前面的#号，使他生效，然后保存，运行命令sysctl –p.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@s:~<span class="comment"># sysctl -p</span></div></pre></td></tr></table></figure>
+
+<p>运行命令后会显示这样的一行，那就表示修改生效了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">net.ipv4.ip_forward = <span class="number">1</span></div></pre></td></tr></table></figure>
+
+<p>这样，vpn 服务器就算是搭建成功了。<br>重启pptpd后如果还不能访问外网，那么就要再来一步。</p>
+<h1 id="第五步：">第五步：</h1>
+<p>使用iptables建立一个NAT, 用下面的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install iptables （如果已经安装iptables，这一步就不用了）</div><div class="line">iptables -t nat -A POSTROUTING <span class="operator">-s</span> <span class="number">192.168</span>.<span class="number">0.0</span>/<span class="number">24</span> -o eth0 -j MASQUERADE</div></pre></td></tr></table></figure>
+
+<p>上面的24表示子网掩码，代表24个1.<br>OK，到了这一步就应该可以用VPN了哈。如果不能，我也不知是哪里出问题了。<br>如果要防止重启服务器后iptables丢失，先运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iptables-save &gt; /etc/iptables-rules</div></pre></td></tr></table></figure>
+
+<p>然后修改/etc/network/interfaces 文件，在eth0 下面加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pre-up iptables-restore &lt; /etc/iptables-rules</div></pre></td></tr></table></figure>
+
+<p>这样，服务器重启后，就能自动挂载规则了。<br>好了，有了VPN，墙再高也不怕了哈。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/networking/">networking</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/VPN/">VPN</a><a href="/tags/翻墙/">翻墙</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.ibartman.com/2015/07/06/ubuntu安装pptpd来架设VPN服务器/" data-title="ubuntu安装pptpd来架设VPN服务器 | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/02/10/一个VPN的漏洞-可以泄漏用户真实的IP/"  title="一个VPN的漏洞, 可以泄漏用户真实的IP">
+ <strong>下一篇：</strong><br/> 
+ <span>一个VPN的漏洞, 可以泄漏用户真实的IP
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一步："><span class="toc-number">1.</span> <span class="toc-text">第一步：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二步："><span class="toc-number">2.</span> <span class="toc-text">第二步：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三步："><span class="toc-number">3.</span> <span class="toc-text">第三步：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四步："><span class="toc-number">4.</span> <span class="toc-text">第四步：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五步："><span class="toc-number">5.</span> <span class="toc-text">第五步：</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/BSD/" title="BSD">BSD<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Windows/" title="Windows">Windows<sup>2</sup></a></li>
+		
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>3</sup></a></li>
+		
+			<li><a href="/categories/networking/" title="networking">networking<sup>4</sup></a></li>
+		
+			<li><a href="/categories/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/categories/美食/" title="美食">美食<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>3</sup></a></li>
+		
+			<li><a href="/tags/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		
+			<li><a href="/tags/installation/" title="installation">installation<sup>2</sup></a></li>
+		
+			<li><a href="/tags/翻墙/" title="翻墙">翻墙<sup>2</sup></a></li>
+		
+			<li><a href="/tags/VPN/" title="VPN">VPN<sup>2</sup></a></li>
+		
+			<li><a href="/tags/colorscheme/" title="colorscheme">colorscheme<sup>1</sup></a></li>
+		
+			<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/网络配置/" title="网络配置">网络配置<sup>1</sup></a></li>
+		
+			<li><a href="/tags/系统恢复/" title="系统恢复">系统恢复<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ssh/" title="ssh">ssh<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Ubuntu/" title="Ubuntu">Ubuntu<sup>1</sup></a></li>
+		
+			<li><a href="/tags/墨西哥菜/" title="墨西哥菜">墨西哥菜<sup>1</sup></a></li>
+		
+			<li><a href="/tags/vim/" title="vim">vim<sup>1</sup></a></li>
+		
+			<li><a href="/tags/BIOS/" title="BIOS">BIOS<sup>1</sup></a></li>
+		
+			<li><a href="/tags/中餐/" title="中餐">中餐<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://coolshell.cn/" target="_blank" title="酷壳">酷壳</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> I AM BARTMAN. <br/>
+			WATCH IT, DUDE</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/xuzhang86" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		<a href="https://www.facebook.com/xuzhang86" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="https://www.zhihu.com/people/xuzhang" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		<a href="https://plus.google.com/106468424491774485690?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme modified from <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
+		
+		<a href="http://www.ibartman.com/about" target="_blank" title="Shane">Shane</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'ibartmancom';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+  </body>
+</html>
