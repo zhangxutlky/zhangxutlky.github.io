@@ -2,11 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.ibartman.com/2015/03/31/ipython-%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2015-04-01T18:07:10.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://www.ibartman.com/2015/02/11/%E4%B8%80%E4%B8%AAVPN%E7%9A%84%E6%BC%8F%E6%B4%9E-%E5%8F%AF%E4%BB%A5%E6%B3%84%E6%BC%8F%E7%94%A8%E6%88%B7%E7%9C%9F%E5%AE%9E%E7%9A%84IP/</loc>
     <lastmod>2015-02-11T21:35:48.000Z</lastmod>
   </url>
@@ -62,6 +57,21 @@
   </url>
   
   <url>
+    <loc>http://www.ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/</loc>
+    <lastmod>2015-01-27T17:45:34.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.ibartman.com/2012/03/16/%E7%94%A8CD-%E5%AE%89%E8%A3%85openBSD-%EF%BC%88Alpha-Mac-G4-Sparc64/</loc>
+    <lastmod>2015-01-27T17:45:34.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.ibartman.com/2014/04/17/vim%20%E9%85%8D%E8%89%B2/</loc>
+    <lastmod>2015-01-27T17:45:34.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.ibartman.com/404.html</loc>
     <lastmod>2015-01-27T17:45:34.000Z</lastmod>
   </url>
@@ -73,21 +83,6 @@
   
   <url>
     <loc>http://www.ibartman.com/2015/01/24/add-personal-domains/</loc>
-    <lastmod>2015-01-27T17:45:34.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.ibartman.com/2014/04/17/vim%20%E9%85%8D%E8%89%B2/</loc>
-    <lastmod>2015-01-27T17:45:34.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.ibartman.com/2012/03/07/Install-OpenBSD-on-Octane-sgi/</loc>
-    <lastmod>2015-01-27T17:45:34.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.ibartman.com/2012/03/16/%E7%94%A8CD-%E5%AE%89%E8%A3%85openBSD-%EF%BC%88Alpha-Mac-G4-Sparc64/</loc>
     <lastmod>2015-01-27T17:45:34.000Z</lastmod>
   </url>
   
