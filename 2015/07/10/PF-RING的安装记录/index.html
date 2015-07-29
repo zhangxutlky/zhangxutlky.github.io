@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Linux 下设置两个主机通过router上网 | Bartman&#39;s Cave</title>
+    <title>PF_RING的安装记录 | Bartman&#39;s Cave</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Shane">
     
-    <meta name="description" content="搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。">
+    <meta name="description" content="PF_RING is a Linux kernel module and user-space framework that allows you to process packets at high-rates while providing you a consistant APT for packet processing applications.">
     
     
-    <meta name="description" content="搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。">
+    <meta name="description" content="PF_RING is a Linux kernel module and user-space framework that allows you to process packets at high-rates while providing you a consistant APT for packet processing applications.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 下设置两个主机通过router上网">
-<meta property="og:url" content="http://www.ibartman.com/2012/09/29/Linux-下设置两个主机通过router上网/">
+<meta property="og:title" content="PF_RING的安装记录">
+<meta property="og:url" content="http://www.ibartman.com/2015/07/10/PF-RING的安装记录/">
 <meta property="og:site_name" content="Bartman's Cave">
-<meta property="og:description" content="搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。">
+<meta property="og:description" content="PF_RING is a Linux kernel module and user-space framework that allows you to process packets at high-rates while providing you a consistant APT for packet processing applications.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 下设置两个主机通过router上网">
-<meta name="twitter:description" content="搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。">
+<meta name="twitter:title" content="PF_RING的安装记录">
+<meta name="twitter:description" content="PF_RING is a Linux kernel module and user-space framework that allows you to process packets at high-rates while providing you a consistant APT for packet processing applications.">
 
 
     
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2012/09/29/Linux-下设置两个主机通过router上网/" title="Linux 下设置两个主机通过router上网" itemprop="url">Linux 下设置两个主机通过router上网</a>
+      <a href="/2015/07/10/PF-RING的安装记录/" title="PF_RING的安装记录" itemprop="url">PF_RING的安装记录</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://www.ibartman.com/about" title="Shane" target="_blank" itemprop="author">Shane</a>
 		
   <p class="article-time">
-    <time datetime="2012-09-29T17:45:51.000Z" itemprop="datePublished"> Published 09-29-2012</time>
+    <time datetime="2015-07-10T22:08:26.000Z" itemprop="datePublished"> Published 07-10-2015</time>
     
   </p>
 </header>
@@ -96,30 +96,33 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Installation:"><span class="toc-number">1.</span> <span class="toc-text">Installation:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#If_need_libpcap"><span class="toc-number">2.</span> <span class="toc-text">If need libpcap</span></a></li></ol>
 		
 		</div>
 		
-		<p>搭建环境是virtual box，网络选择是internal network。并且 endpoint1 和router的NIC2用一个internal network。endpoint2和router的NIC3用一个internal network。3台主机使用系统ubuntu 10.04. 其中两台endpoint是一个interface，router有四个interface。<br><a id="more"></a><br><code>sudo vi /etc/network/interfaces</code><br>配置如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">endpoint <span class="number">1</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">1.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">gw <span class="number">10.1</span>.<span class="number">1.2</span>              //gateway是router eth1的ip </div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain </div><div class="line"> </div><div class="line">endpoint <span class="number">2</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">2.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">gw <span class="number">10.1</span>.<span class="number">2.2</span>             //gateway是router eth2的ip</div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain</div></pre></td></tr></table></figure>
+		<p>PF_RING is a Linux kernel module and user-space framework that allows you to process packets at high-rates while providing you a consistant APT for packet processing applications.</p>
+<p><a id="more"></a><br>Before install, you may need:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-get install byacc flex libnuma-dev</div></pre></td></tr></table></figure>
 
+<h1 id="Installation:">Installation:</h1>
+<ul>
+<li>installation</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line"><span class="built_in">sudo</span> su </div><div class="line"><span class="built_in">cd</span> kernel; make install</div><div class="line"><span class="built_in">cd</span> ../userland/lib; make install</div></pre></td></tr></table></figure>
 
+<h1 id="If_need_libpcap">If need libpcap</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;PF_RING PATH&gt;/libpcap-XXX-ring/</div><div class="line">./configure</div><div class="line">make</div><div class="line"><span class="built_in">sudo</span> make install</div></pre></td></tr></table></figure>
 
-<p>这样的话，没有router，两台机器是不能ping的，因为在不同的子网<br>router的配置如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#NIC1</span></div><div class="line">auto eth0</div><div class="line">iface eth0 inet dhcp   //用于上网</div><div class="line">dns-nameserver <span class="number">8.8</span>.<span class="number">8.8</span></div><div class="line">dns-search local</div><div class="line">dns-domain local.domain</div><div class="line"> </div><div class="line"><span class="comment">#NIC2</span></div><div class="line">auto eth1</div><div class="line">iface eth1 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">1.2</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line"> </div><div class="line"><span class="comment">#NIC3</span></div><div class="line">auto eth2</div><div class="line">iface eth2 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">2.2</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line"> </div><div class="line"><span class="comment">#NIC4                        //这一个interface用来连接本地的user</span></div><div class="line">auto eth3</div><div class="line">iface eth3 inet static</div><div class="line">address <span class="number">10.1</span>.<span class="number">3.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div><div class="line">up route add -net x.x.x.x/<span class="number">24</span> gw xx.xx.xx.xx dev eth3  //x.x.x.x 是你想要连接的其他本地用户的endpoint的网络，xx.xx.xx.xx 是这个用户的 router ip，注意 xx.xx.xx.xx 必须与你自己的router ip在一个子网中</div></pre></td></tr></table></figure>
+<ul>
+<li>uninstall previous driver</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ethtool -i ethx</div><div class="line">lsmod | grep e1000e</div><div class="line">rmmod e1000e</div></pre></td></tr></table></figure>
 
+<ul>
+<li>Install new driver</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;PF_RING PATH&gt;/kernel/</div><div class="line"><span class="built_in">sudo</span> insmod pf_ring.ko</div><div class="line"><span class="built_in">cd</span> ../drivers/.../e1000e xxx/src/</div><div class="line">./configure</div><div class="line">make</div><div class="line"><span class="built_in">sudo</span> make install (find the path)</div><div class="line"><span class="built_in">cd</span> /lib/modules/&lt;kernel version&gt;/kernel/driver/net/... (path <span class="keyword">in</span> previous step)</div><div class="line"><span class="built_in">sudo</span> insmod e1000e.ko</div></pre></td></tr></table></figure>
 
-<p>这些配置之后，需要在router开启ip_forwarding<br><code>sudo su -</code><br><code>vi /etc/sysctl.conf</code> 把#net.ipv4.ip_forward=1 的注释去掉<br><code>echo 1 &gt; /proc/sys/net/ipv4/ip_forward</code></p>
-<p>然后在router里开启NAT network address translation 网络地址解析<br><code>sudo vim /etc/rc.local</code></p>
-<p>在 “exit 0” 之前加入以下两行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/sbin/iptables -P FORWARD ACCEPT</div><div class="line">/sbin/iptables --table nat -A POSTROUTING -o eth0 -j MASQUERADE</div></pre></td></tr></table></figure>
-
-
-<p>至此，自己两台主机已经可以互相ping通，并且上网。</p>
-<p>//需要注意的是，自己router的第四个interface，需要和本地其他用户的router的一个interface使用一个internal network。要实现这一点需要两个人同时在host的terminal运行如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">VBoxManage setextradata &lt;VM_NAME&gt; VBoxInternal/Devices/&lt;ADAPTER_TYPE&gt;/&lt;ADAPTER_SLOT&gt;/LUN<span class="comment">#0/Config/RestrictAccess 0</span></div><div class="line">&lt;VM_NAME&gt;                       //自己router的名字</div><div class="line">&lt;ADAPTER_TYPE&gt;            // e1000</div><div class="line"> &lt;ADAPTER_SLOT&gt;          // 在virtualbox里的第几个slot，直接写数字（<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>）</div></pre></td></tr></table></figure>
-
-<p>全部完成，have fun！</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -133,7 +136,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/网络配置/">网络配置</a><a href="/tags/Linux/">Linux</a>
+  <span></span> <a href="/tags/PF-RING/">PF_RING</a>
   </div>
 
 </div>
@@ -142,7 +145,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.ibartman.com/2012/09/29/Linux-下设置两个主机通过router上网/" data-title="Linux 下设置两个主机通过router上网 | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.ibartman.com/2015/07/10/PF-RING的安装记录/" data-title="PF_RING的安装记录 | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -155,19 +158,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2013/06/05/HP-V3704-刷BIOS-黑屏，解决办法/" title="HP V3704 刷BIOS 黑屏，解决办法">
-  <strong>上一篇：</strong><br/>
-  <span>
-  HP V3704 刷BIOS 黑屏，解决办法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2012/03/15/用CD-安装openBSD-（Alpha-Mac-G4-Sparc64/"  title="用CD 安装openBSD （Alpha, Mac G4, Sparc64)">
+<a href="/2015/07/07/ubuntu安装pptpd来架设VPN服务器/"  title="ubuntu安装pptpd来架设VPN服务器">
  <strong>下一篇：</strong><br/> 
- <span>用CD 安装openBSD （Alpha, Mac G4, Sparc64)
+ <span>ubuntu安装pptpd来架设VPN服务器
 </span>
 </a>
 </div>
@@ -188,7 +183,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Installation:"><span class="toc-number">1.</span> <span class="toc-text">Installation:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#If_need_libpcap"><span class="toc-number">2.</span> <span class="toc-text">If need libpcap</span></a></li></ol>
  
   </div>
 

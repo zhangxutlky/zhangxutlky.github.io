@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ibartman.com/"/>
-  <updated>2015-07-07T17:47:28.615Z</updated>
+  <updated>2015-07-29T20:08:19.381Z</updated>
   <id>http://www.ibartman.com/</id>
   
   <author>
@@ -13,6 +13,48 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[PF_RING的安装记录]]></title>
+    <link href="http://www.ibartman.com/2015/07/10/PF-RING%E7%9A%84%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/"/>
+    <id>http://www.ibartman.com/2015/07/10/PF-RING的安装记录/</id>
+    <published>2015-07-10T22:08:26.000Z</published>
+    <updated>2015-07-29T20:07:56.000Z</updated>
+    <content type="html"><![CDATA[<p>PF_RING is a Linux kernel module and user-space framework that allows you to process packets at high-rates while providing you a consistant APT for packet processing applications.</p>
+<p><a id="more"></a><br>Before install, you may need:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-get install byacc flex libnuma-dev</div></pre></td></tr></table></figure>
+
+<h1 id="Installation:">Installation:</h1>
+<ul>
+<li>installation</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">make</div><div class="line"><span class="built_in">sudo</span> su </div><div class="line"><span class="built_in">cd</span> kernel; make install</div><div class="line"><span class="built_in">cd</span> ../userland/lib; make install</div></pre></td></tr></table></figure>
+
+<h1 id="If_need_libpcap">If need libpcap</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;PF_RING PATH&gt;/libpcap-XXX-ring/</div><div class="line">./configure</div><div class="line">make</div><div class="line"><span class="built_in">sudo</span> make install</div></pre></td></tr></table></figure>
+
+<ul>
+<li>uninstall previous driver</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ethtool -i ethx</div><div class="line">lsmod | grep e1000e</div><div class="line">rmmod e1000e</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Install new driver</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;PF_RING PATH&gt;/kernel/</div><div class="line"><span class="built_in">sudo</span> insmod pf_ring.ko</div><div class="line"><span class="built_in">cd</span> ../drivers/.../e1000e xxx/src/</div><div class="line">./configure</div><div class="line">make</div><div class="line"><span class="built_in">sudo</span> make install (find the path)</div><div class="line"><span class="built_in">cd</span> /lib/modules/&lt;kernel version&gt;/kernel/driver/net/... (path <span class="keyword">in</span> previous step)</div><div class="line"><span class="built_in">sudo</span> insmod e1000e.ko</div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>PF_RING is a Linux kernel module and user-space framework that allows you to process packets at high-rates while providing you a consistant APT for packet processing applications.</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term="PF_RING" scheme="http://www.ibartman.com/tags/PF-RING/"/>
+    
+      <category term="networking" scheme="http://www.ibartman.com/categories/networking/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[ubuntu安装pptpd来架设VPN服务器]]></title>
