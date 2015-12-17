@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ibartman.com/"/>
-  <updated>2015-12-17T22:10:47.915Z</updated>
+  <updated>2015-12-17T22:12:58.920Z</updated>
   <id>http://www.ibartman.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://www.ibartman.com/2015/12/16/network-remote-management/"/>
     <id>http://www.ibartman.com/2015/12/16/network-remote-management/</id>
     <published>2015-12-16T22:00:11.000Z</published>
-    <updated>2015-12-17T22:10:23.000Z</updated>
+    <updated>2015-12-17T22:12:52.000Z</updated>
     <content type="html"><![CDATA[<p>To keep server secure, we use ssh tunnel to do remote management on the server. (require another machine)<br><a id="more"></a><br>First, connect MGMT port on the server (A) to one of the interfaces on machine (B).</p>
 <h1 id="Configure_Server_Management_using_BIOS_Setup_(on_A)">Configure Server Management using BIOS Setup (on A)</h1>
 <ol>
@@ -77,6 +77,8 @@
       <category term="ssh" scheme="http://www.ibartman.com/tags/ssh/"/>
     
       <category term="BMC" scheme="http://www.ibartman.com/tags/BMC/"/>
+    
+      <category term="BIOS" scheme="http://www.ibartman.com/tags/BIOS/"/>
     
       <category term="networking" scheme="http://www.ibartman.com/categories/networking/"/>
     
