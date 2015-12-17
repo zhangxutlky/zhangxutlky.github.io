@@ -4,7 +4,7 @@
   <subtitle><![CDATA[my cyber blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.ibartman.com/"/>
-  <updated>2015-08-17T16:59:35.229Z</updated>
+  <updated>2015-12-17T22:10:47.915Z</updated>
   <id>http://www.ibartman.com/</id>
   
   <author>
@@ -13,6 +13,74 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[network remote management]]></title>
+    <link href="http://www.ibartman.com/2015/12/16/network-remote-management/"/>
+    <id>http://www.ibartman.com/2015/12/16/network-remote-management/</id>
+    <published>2015-12-16T22:00:11.000Z</published>
+    <updated>2015-12-17T22:10:23.000Z</updated>
+    <content type="html"><![CDATA[<p>To keep server secure, we use ssh tunnel to do remote management on the server. (require another machine)<br><a id="more"></a><br>First, connect MGMT port on the server (A) to one of the interfaces on machine (B).</p>
+<h1 id="Configure_Server_Management_using_BIOS_Setup_(on_A)">Configure Server Management using BIOS Setup (on A)</h1>
+<ol>
+<li>Press <code>&lt;F2&gt;</code> to go to BIOS setup.</li>
+<li>Navigate to Server Management tab and then scroll down to BMC LAN Configuration. Press <code>&lt;Enter&gt;</code>.</li>
+<li>Scroll to IP source and then select Dynamic</li>
+<li>Scroll to User ID, change username and password (need to enter password twice).</li>
+<li>Press <code>&lt;F10&gt;</code> to save and exit.</li>
+</ol>
+<h1 id="Configure_network_interface_(on_B)">Configure network interface (on B)</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> vim /etc/network/interfaces</div></pre></td></tr></table></figure>
+
+<p>(example)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">auto eth1</div><div class="line">iface eth1 inet static</div><div class="line">address <span class="number">192.168</span>.<span class="number">1.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div></pre></td></tr></table></figure>
+
+<h1 id="Set_up_an_DHCP_Server_(on_B)">Set up an DHCP Server (on B)</h1>
+<ul>
+<li>Install DHCP server</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-get install isc-dhcp-server</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Bind to interfaces</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> vim /etc/default/isc-dhcp-server</div></pre></td></tr></table></figure>
+
+<p>You should see the following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Defaults for dhcp initscript</span></div><div class="line"><span class="comment">#sourced by /etc/init.d/dhcp</span></div><div class="line"><span class="comment">#installed at /etc/default/isc-dhcp-server by the maintainer scripts</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#This is a POSIX shell fragment</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#On what interfaces should the DHCP server (dhcpd) serve DHCP requests"</span></div><div class="line"><span class="comment">#Separate multiple interfaces with spaces, e.g. “eth0 eth1".</span></div><div class="line">INTERFACES=<span class="string">""</span></div></pre></td></tr></table></figure>
+
+<p>Then add the interface which connected to MGMT port of A, in our example, it is eth1.</p>
+<ul>
+<li>Configure DHCP server</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> vim /etc/dhcp/dhcpd.conf</div></pre></td></tr></table></figure>
+
+<p>example:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">subnet <span class="number">192.168</span>.<span class="number">1.0</span> netmask <span class="number">255.255</span>.<span class="number">255.0</span> {</div><div class="line">range <span class="number">192.168</span>.<span class="number">1.2</span> <span class="number">192.168</span>.<span class="number">1.10</span>;</div><div class="line">option routers <span class="number">192.168</span>.<span class="number">1.1</span>;</div><div class="line">option broadcast-address <span class="number">192.168</span>.<span class="number">1.255</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Restart DHCP server and check if you can get client</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> service isc-dhcp-server restart</div><div class="line">cat /var/lib/dhcp/dhcpd.leases</div></pre></td></tr></table></figure>
+
+<p>If everything works fine, you should have 192.168.1.2 for server A’s remote management.</p>
+<h1 id="Remote_Management_via_ssh_tunnel">Remote Management via ssh tunnel</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -L <span class="number">9001</span>:<span class="number">192.168</span>.<span class="number">1.2</span>:<span class="number">80</span> &lt;username@hostB&gt;</div></pre></td></tr></table></figure>
+
+<p>open a browser, type <a href="http://localhost:9001" target="_blank" rel="external">http://localhost:9001</a>, then you can see the management page for server A.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>To keep server secure, we use ssh tunnel to do remote management on the server. (require another machine)<br>]]>
+    
+    </summary>
+    
+      <category term="ssh" scheme="http://www.ibartman.com/tags/ssh/"/>
+    
+      <category term="BMC" scheme="http://www.ibartman.com/tags/BMC/"/>
+    
+      <category term="networking" scheme="http://www.ibartman.com/categories/networking/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[暗时间-读书笔记]]></title>

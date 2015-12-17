@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>一个VPN的漏洞, 可以泄漏用户真实的IP | Bartman&#39;s Cave</title>
+    <title>network remote management | Bartman&#39;s Cave</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Shane">
     
-    <meta name="description" content="许多人用VPN来绕过区域的限制. 当连接到VPN后,通常你的IP地址会显示为exit server 的IP, 而不是你真正的IP. 但是最近的一个关于WebRTC (Web Real Time Communication) 安全漏洞, 使得用户真实的IP被泄漏即使用户使用VPN.WebRTC 内建于">
+    <meta name="description" content="To keep server secure, we use ssh tunnel to do remote management on the server. (require another machine)">
     
     
-    <meta name="description" content="许多人用VPN来绕过区域的限制. 当连接到VPN后,通常你的IP地址会显示为exit server 的IP, 而不是你真正的IP. 但是最近的一个关于WebRTC (Web Real Time Communication) 安全漏洞, 使得用户真实的IP被泄漏即使用户使用VPN.WebRTC 内建于大多数浏览器, 所有使用网页的应用也受到影响. 政府可以利用这个漏洞查看用户的真实IP地址.这个漏洞">
+    <meta name="description" content="To keep server secure, we use ssh tunnel to do remote management on the server. (require another machine)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一个VPN的漏洞, 可以泄漏用户真实的IP">
-<meta property="og:url" content="http://www.ibartman.com/2015/02/10/一个VPN的漏洞-可以泄漏用户真实的IP/">
+<meta property="og:title" content="network remote management">
+<meta property="og:url" content="http://www.ibartman.com/2015/12/16/network-remote-management/">
 <meta property="og:site_name" content="Bartman's Cave">
-<meta property="og:description" content="许多人用VPN来绕过区域的限制. 当连接到VPN后,通常你的IP地址会显示为exit server 的IP, 而不是你真正的IP. 但是最近的一个关于WebRTC (Web Real Time Communication) 安全漏洞, 使得用户真实的IP被泄漏即使用户使用VPN.WebRTC 内建于大多数浏览器, 所有使用网页的应用也受到影响. 政府可以利用这个漏洞查看用户的真实IP地址.这个漏洞">
+<meta property="og:description" content="To keep server secure, we use ssh tunnel to do remote management on the server. (require another machine)">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个VPN的漏洞, 可以泄漏用户真实的IP">
-<meta name="twitter:description" content="许多人用VPN来绕过区域的限制. 当连接到VPN后,通常你的IP地址会显示为exit server 的IP, 而不是你真正的IP. 但是最近的一个关于WebRTC (Web Real Time Communication) 安全漏洞, 使得用户真实的IP被泄漏即使用户使用VPN.WebRTC 内建于大多数浏览器, 所有使用网页的应用也受到影响. 政府可以利用这个漏洞查看用户的真实IP地址.这个漏洞">
+<meta name="twitter:title" content="network remote management">
+<meta name="twitter:description" content="To keep server secure, we use ssh tunnel to do remote management on the server. (require another machine)">
 
 
     
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/02/10/一个VPN的漏洞-可以泄漏用户真实的IP/" title="一个VPN的漏洞, 可以泄漏用户真实的IP" itemprop="url">一个VPN的漏洞, 可以泄漏用户真实的IP</a>
+      <a href="/2015/12/16/network-remote-management/" title="network remote management" itemprop="url">network remote management</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://www.ibartman.com/about" title="Shane" target="_blank" itemprop="author">Shane</a>
 		
   <p class="article-time">
-    <time datetime="2015-02-10T18:59:26.000Z" itemprop="datePublished"> Published 02-10-2015</time>
+    <time datetime="2015-12-16T22:00:11.000Z" itemprop="datePublished"> Published 12-16-2015</time>
     
   </p>
 </header>
@@ -96,19 +96,58 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Configure_Server_Management_using_BIOS_Setup_(on_A)"><span class="toc-number">1.</span> <span class="toc-text">Configure Server Management using BIOS Setup (on A)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configure_network_interface_(on_B)"><span class="toc-number">2.</span> <span class="toc-text">Configure network interface (on B)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Set_up_an_DHCP_Server_(on_B)"><span class="toc-number">3.</span> <span class="toc-text">Set up an DHCP Server (on B)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Remote_Management_via_ssh_tunnel"><span class="toc-number">4.</span> <span class="toc-text">Remote Management via ssh tunnel</span></a></li></ol>
 		
 		</div>
 		
-		<p>许多人用VPN来绕过区域的限制. 当连接到VPN后,通常你的IP地址会显示为exit server 的IP, 而不是你真正的IP. 但是最近的一个关于WebRTC (Web Real Time Communication) 安全漏洞, 使得用户真实的IP被泄漏即使用户使用VPN.<br>WebRTC 内建于大多数浏览器, 所有使用网页的应用也受到影响. 政府可以利用这个漏洞查看用户的真实IP地址.这个漏洞是被 <a href="https://daylightpirates.org/" target="_blank" rel="external">Daniel Roesler</a> 发现, 具体信息在 <a href="https://github.com/diafygi/webrtc-ips" target="_blank" rel="external">Git Hub</a>.</p>
-<p>查看自己的VPN是否受到影响:<br>用<a href="http://whatismyipaddress.com/" target="_blank" rel="external">what is my ip address</a> 分别查看登录VPN之前和之后自己的IP地址.</p>
-<p>简单的解决办法:</p>
+		<p>To keep server secure, we use ssh tunnel to do remote management on the server. (require another machine)<br><a id="more"></a><br>First, connect MGMT port on the server (A) to one of the interfaces on machine (B).</p>
+<h1 id="Configure_Server_Management_using_BIOS_Setup_(on_A)">Configure Server Management using BIOS Setup (on A)</h1>
+<ol>
+<li>Press <code>&lt;F2&gt;</code> to go to BIOS setup.</li>
+<li>Navigate to Server Management tab and then scroll down to BMC LAN Configuration. Press <code>&lt;Enter&gt;</code>.</li>
+<li>Scroll to IP source and then select Dynamic</li>
+<li>Scroll to User ID, change username and password (need to enter password twice).</li>
+<li>Press <code>&lt;F10&gt;</code> to save and exit.</li>
+</ol>
+<h1 id="Configure_network_interface_(on_B)">Configure network interface (on B)</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> vim /etc/network/interfaces</div></pre></td></tr></table></figure>
+
+<p>(example)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">auto eth1</div><div class="line">iface eth1 inet static</div><div class="line">address <span class="number">192.168</span>.<span class="number">1.1</span></div><div class="line">netmask <span class="number">255.255</span>.<span class="number">255.0</span></div></pre></td></tr></table></figure>
+
+<h1 id="Set_up_an_DHCP_Server_(on_B)">Set up an DHCP Server (on B)</h1>
 <ul>
-<li>chrome: 安装<a href="https://chrome.google.com/webstore/detail/scriptsafe/oiigbmnaadbkfbmpbfijlflahbdbdgdf?hl=en" target="_blank" rel="external">ScriptSafe</a> 插件</li>
-<li>firefox: 在Mozilla插件里禁用WebRTC, 或者打开浏览器输入 ‘about:cofig’ 找到 ‘media.peerconnection.enabled’, 设置为 false</li>
+<li>Install DHCP server</li>
 </ul>
-<p>更好的方法:<br>在自己家的路由上设置VPN,这样可以保护所有自家的设备.<br>进入router的 admin 页面, 找到security或者conncetion的选项,不同的router可能会有区别, 找到VPN的设置,然后输入自己VPN的信息即可. 如果没有找到相关的设置, 可以去VPN那里查询支持的router型号.如果使用的是open source的firmware, 可以参考下面的 <a href="http://lifehacker.com/how-to-supercharge-your-router-with-dd-wrt-508138224" target="_blank" rel="external">教程</a></p>
-<p><a href="http://lifehacker.com/how-to-see-if-your-vpn-is-leaking-your-ip-address-and-1685180082" target="_blank" rel="external">原文</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> apt-get install isc-dhcp-server</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Bind to interfaces</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> vim /etc/default/isc-dhcp-server</div></pre></td></tr></table></figure>
+
+<p>You should see the following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Defaults for dhcp initscript</span></div><div class="line"><span class="comment">#sourced by /etc/init.d/dhcp</span></div><div class="line"><span class="comment">#installed at /etc/default/isc-dhcp-server by the maintainer scripts</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#This is a POSIX shell fragment</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#On what interfaces should the DHCP server (dhcpd) serve DHCP requests"</span></div><div class="line"><span class="comment">#Separate multiple interfaces with spaces, e.g. “eth0 eth1".</span></div><div class="line">INTERFACES=<span class="string">""</span></div></pre></td></tr></table></figure>
+
+<p>Then add the interface which connected to MGMT port of A, in our example, it is eth1.</p>
+<ul>
+<li>Configure DHCP server</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> vim /etc/dhcp/dhcpd.conf</div></pre></td></tr></table></figure>
+
+<p>example:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">subnet <span class="number">192.168</span>.<span class="number">1.0</span> netmask <span class="number">255.255</span>.<span class="number">255.0</span> {</div><div class="line">range <span class="number">192.168</span>.<span class="number">1.2</span> <span class="number">192.168</span>.<span class="number">1.10</span>;</div><div class="line">option routers <span class="number">192.168</span>.<span class="number">1.1</span>;</div><div class="line">option broadcast-address <span class="number">192.168</span>.<span class="number">1.255</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<ul>
+<li>Restart DHCP server and check if you can get client</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> service isc-dhcp-server restart</div><div class="line">cat /var/lib/dhcp/dhcpd.leases</div></pre></td></tr></table></figure>
+
+<p>If everything works fine, you should have 192.168.1.2 for server A’s remote management.</p>
+<h1 id="Remote_Management_via_ssh_tunnel">Remote Management via ssh tunnel</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -L <span class="number">9001</span>:<span class="number">192.168</span>.<span class="number">1.2</span>:<span class="number">80</span> &lt;username@hostB&gt;</div></pre></td></tr></table></figure>
+
+<p>open a browser, type <a href="http://localhost:9001" target="_blank" rel="external">http://localhost:9001</a>, then you can see the management page for server A.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -122,7 +161,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/VPN/">VPN</a>
+  <span></span> <a href="/tags/ssh/">ssh</a><a href="/tags/BMC/">BMC</a>
   </div>
 
 </div>
@@ -131,7 +170,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.ibartman.com/2015/02/10/一个VPN的漏洞-可以泄漏用户真实的IP/" data-title="一个VPN的漏洞, 可以泄漏用户真实的IP | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.ibartman.com/2015/12/16/network-remote-management/" data-title="network remote management | Bartman&#39;s Cave" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -144,19 +183,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/07/ubuntu安装pptpd来架设VPN服务器/" title="ubuntu安装pptpd来架设VPN服务器">
-  <strong>上一篇：</strong><br/>
-  <span>
-  ubuntu安装pptpd来架设VPN服务器</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/02/03/how-to-make-guacamole/"  title="how to make guacamole">
+<a href="/2015/08/16/暗时间-读书笔记/"  title="暗时间-读书笔记">
  <strong>下一篇：</strong><br/> 
- <span>how to make guacamole
+ <span>暗时间-读书笔记
 </span>
 </a>
 </div>
@@ -177,7 +208,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Configure_Server_Management_using_BIOS_Setup_(on_A)"><span class="toc-number">1.</span> <span class="toc-text">Configure Server Management using BIOS Setup (on A)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configure_network_interface_(on_B)"><span class="toc-number">2.</span> <span class="toc-text">Configure network interface (on B)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Set_up_an_DHCP_Server_(on_B)"><span class="toc-number">3.</span> <span class="toc-text">Set up an DHCP Server (on B)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Remote_Management_via_ssh_tunnel"><span class="toc-number">4.</span> <span class="toc-text">Remote Management via ssh tunnel</span></a></li></ol>
  
   </div>
 
